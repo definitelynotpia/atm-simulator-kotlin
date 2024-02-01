@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">ATMSimulator</string>
+
+    <string name="pin_submit">Submit</string>
+
+    <!--PIN BUTTON LABELS-->
+    <string name="pin0">0</string>
+    <string name="pin1">1</string>
+    <string name="pin2">2</string>
+    <string name="pin3">3</string>
+    <string name="pin4">4</string>
+    <string name="pin5">5</string>
+    <string name="pin6">6</string>
+    <string name="pin7">7</string>
+    <string name="pin8">8</string>
+    <string name="pin9">9</string>
+    <string name="pinPlaceholder">_</string>
+    <string name="appName">BankPro</string>
+
 </resources>
