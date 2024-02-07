@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#EAF7FF"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -73,7 +73,7 @@
         android:rowCount="1">
 
         <TextView
-            android:id="@+id/pinNumber1"
+            android:id="@+id/pinDigit1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
@@ -82,7 +82,7 @@
             android:textSize="50sp" />
 
         <TextView
-            android:id="@+id/pinNumber2"
+            android:id="@+id/pinDigit2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
@@ -91,7 +91,7 @@
             android:textSize="50sp" />
 
         <TextView
-            android:id="@+id/pinNumber3"
+            android:id="@+id/pinDigit3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
@@ -100,7 +100,7 @@
             android:textSize="50sp" />
 
         <TextView
-            android:id="@+id/pinNumber4"
+            android:id="@+id/pinDigit4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"

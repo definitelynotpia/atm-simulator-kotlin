@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ATMSimulator</string>
+    <string name="app_name">atm-simulator</string>
 
     <string name="pin_submit">Submit</string>
 
@@ -20,5 +20,10 @@
     <string name="appSlogan">The bank you can trust.</string>
     <string name="pinFingerprintHint">Login with Fingerprint</string>
     <string name="pinBackspaceHint">Backspace</string>
+
+    <!--PIN SUBMIT MESSAGES-->
+    <string name="pinSubmitSuccess">Welcome to BankPro!</string>
+    <string name="pinSubmitFailure">Incorrect PIN. Please try again.</string>
+    <string name="pinSubmitTimeout">PIN submission timed out. Exiting app.</string>"
 
 </resources>
