@@ -1,54 +1,311 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/myrtle_green"
+    android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+    <GridLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        app:cardElevation="20dp">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="-14dp"
+        android:background="#0055FF"
+        android:columnCount="1"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:rowCount="2"
+        tools:ignore="VisualLintBounds">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/appLogo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:paddingEnd="20dp"
+            android:paddingBottom="15dp"
+            android:text="@string/appName"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            app:drawableStartCompat="@drawable/app_icon"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/appSlogan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="-38dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/appSlogan"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+    </GridLayout>
+
+    <ImageView
+        android:id="@+id/blueWave"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="-35dp"
+        android:layout_marginBottom="-20dp"
+        android:contentDescription="@string/blueWave"
+        app:srcCompat="@drawable/blue_wave_foreground" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:columnCount="4"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:rowCount="1">
+
+        <TextView
+            android:id="@+id/pinNumber1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:text="@string/pinPlaceholder"
+            android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/pinNumber2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:text="@string/pinPlaceholder"
+            android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/pinNumber3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:text="@string/pinPlaceholder"
+            android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/pinNumber4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:text="@string/pinPlaceholder"
+            android:textSize="50sp" />
+
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:columnCount="3"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:rowCount="4">
+
+        <TextView
+            android:id="@+id/pin1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="end"
+            android:background="@drawable/circle_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/pin1"
+            android:textAlignment="center"
+            android:textColor="#0000ff"
+            android:textSize="35sp" />
+
+        <TextView
+            android:id="@+id/pin4"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="end"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circle_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/pin4"
+            android:textAlignment="center"
+            android:textColor="#0000ff"
+            android:textSize="35sp" />
+
+        <TextView
+            android:id="@+id/pin7"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="end"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circle_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/pin7"
+            android:textAlignment="center"
+            android:textColor="#0000ff"
+            android:textSize="35sp" />
+
+        <TextView
+            android:id="@+id/pinFingerprint"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="end"
+            android:layout_marginTop="-14dp"
+            android:background="@drawable/circle_button"
+            android:clickable="true"
+            android:contentDescription="@string/pinFingerprintHint"
+            android:focusable="true"
+            android:paddingStart="13dp"
+            app:drawableStartCompat="@drawable/fingerprint_icon"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/pin2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_columnWeight="1"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/custom_edittext"
-            android:orientation="vertical"
-            android:padding="24dp">
+            android:background="@drawable/circle_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/pin2"
+            android:textAlignment="center"
+            android:textColor="#0000ff"
+            android:textSize="35sp" />
 
-            <Button
-                android:id="@+id/mainLogin"
-                android:layout_width="200dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/old_gold"
-                android:text="@string/loginButton"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                app:cornerRadius="30dp" />
+        <TextView
+            android:id="@+id/pin5"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circle_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/pin5"
+            android:textAlignment="center"
+            android:textColor="#0000ff"
+            android:textSize="35sp" />
 
-            <Button
-                android:id="@+id/mainRegister"
-                android:layout_width="200dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="@color/old_gold"
-                android:text="@string/registerButton"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                app:cornerRadius="30dp" />
+        <TextView
+            android:id="@+id/pin8"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circle_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/pin8"
+            android:textAlignment="center"
+            android:textColor="#0000ff"
+            android:textSize="35sp" />
 
-        </LinearLayout>
+        <TextView
+            android:id="@+id/pin0"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circle_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/pin0"
+            android:textAlignment="center"
+            android:textColor="#0000ff"
+            android:textSize="35sp" />
 
-    </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/pin3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="start"
+            android:background="@drawable/circle_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/pin3"
+            android:textAlignment="center"
+            android:textColor="#0000ff"
+            android:textSize="35sp" />
 
+        <TextView
+            android:id="@+id/pin6"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="start"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circle_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/pin6"
+            android:textAlignment="center"
+            android:textColor="#0000ff"
+            android:textSize="35sp" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/pin9"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="start"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circle_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/pin9"
+            android:textAlignment="center"
+            android:textColor="#0000ff"
+            android:textSize="35sp" />
+
+        <TextView
+            android:id="@+id/pinDelete"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="start"
+            android:layout_marginTop="-14dp"
+            android:background="@drawable/circle_button"
+            android:clickable="true"
+            android:contentDescription="@string/pinBackspaceHint"
+            android:focusable="true"
+            android:paddingStart="20dp"
+            app:drawableStartCompat="@drawable/backspace_icon"
+            tools:ignore="RtlSymmetry" />
+
+    </GridLayout>
+
+</GridLayout>

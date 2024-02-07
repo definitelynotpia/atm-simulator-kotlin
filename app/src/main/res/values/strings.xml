@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">ATMSimulator</string>
 
     <string name="pin_submit">Submit</string>
 
@@ -15,5 +16,9 @@
     <string name="pin9">9</string>
     <string name="pinPlaceholder">_</string>
     <string name="appName">BankPro</string>
+    <string name="blueWave">blue wave</string>
+    <string name="appSlogan">The bank you can trust.</string>
+    <string name="pinFingerprintHint">Login with Fingerprint</string>
+    <string name="pinBackspaceHint">Backspace</string>
 
 </resources>
