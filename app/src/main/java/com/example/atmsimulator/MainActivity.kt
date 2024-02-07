@@ -39,17 +39,82 @@ class MainActivity : AppCompatActivity() {
         val buttonPin6 = findViewById<TextView>(R.id.pin6)
         val buttonPin9 = findViewById<TextView>(R.id.pin9)
 
+        // Backspace for PIN field
+        fun deletePin(deleteType: Int) {
+            when (deleteType) {
+                0 -> {
+                    if (pinDigit4.text.toString() != "_") {
+                        pinDigit4.text = getString(R.string.pinPlaceholder)
+                    } else if (pinDigit3.text.toString() != "_") {
+                        pinDigit3.text = getString(R.string.pinPlaceholder)
+                    } else if (pinDigit2.text.toString() != "_") {
+                        pinDigit2.text = getString(R.string.pinPlaceholder)
+                    } else if (pinDigit1.text.toString() != "_") {
+                        pinDigit1.text = getString(R.string.pinPlaceholder)
+                    }
+                }
+
+                1 -> {
+                    pinDigit4.text = getString(R.string.pinPlaceholder)
+                    pinDigit3.text = getString(R.string.pinPlaceholder)
+                    pinDigit2.text = getString(R.string.pinPlaceholder)
+                    pinDigit1.text = getString(R.string.pinPlaceholder)
+                }
+            }
+        }
+
         // Writes numbers in the PIN field
         fun writePin(pinNumber: String) {
             if (pinDigit1.text.toString() != "_") {
                 if (pinDigit2.text.toString() != "_") {
                     if (pinDigit3.text.toString() != "_") {
-                        if (pinDigit4.text.toString() == "_") pinDigit4.text = pinNumber
-                        pinDigit3.text = pinNumber
-                    }
-                    pinDigit2.text = pinNumber
+                        if (pinDigit4.text.toString() == "_") pinDigit4.setText(pinNumber)
+                    } else pinDigit3.setText(pinNumber)
+                } else pinDigit2.setText(pinNumber)
+            } else pinDigit1.setText(pinNumber)
+
+            if (pinDigit4.text.toString() != "_") {
+                // Concatenate PIN numbers into one string
+                val newPin =
+                    pinDigit1.text.toString() + pinDigit2.text.toString() + pinDigit3.text.toString() + pinDigit4.text.toString()
+
+//                Toast.makeText(this, newPin, Toast.LENGTH_SHORT).show()
+
+                // Make Alert Dialog
+                val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+
+                // Check if there are more tries
+                if (tries <= 1) {
+                    builder.setMessage("You have 0 tries left! App will be closing now")
+                        .setTitle("You have no tries left!").setPositiveButton("Exit App") { _, _ ->
+                            moveTaskToBack(true)
+                            exitProcess(-1)
+                        }
+                } else if (newPin == validPin1) {
+                    builder.setMessage("You have successfully entered the correct pin number")
+                        .setTitle("Entered PIN Success!").setPositiveButton("Continue") { _, _ ->
+                            startActivity(Intent(this, Dashboard::class.java))
+                        }
+                } else if (newPin == validPin2) {
+                    builder.setMessage("You have successfully entered the correct pin number")
+                        .setTitle("Entered PIN Success!").setPositiveButton("Continue") { _, _ ->
+                            startActivity(Intent(this, Dashboard::class.java))
+                        }
+                } else {
+                    tries--
+                    builder.setMessage("You have entered the wrong pin number")
+                        .setTitle("Wrong PIN Entered").setPositiveButton("Try Again") { _, _ ->
+                            deletePin(1)
+                            Toast.makeText(
+                                this, "You have $tries tries left", Toast.LENGTH_SHORT
+                            ).show()
+                        }
                 }
-                pinDigit1.text = pinNumber
+
+                //Show Alert Dialog
+                val dialog: AlertDialog = builder.create()
+                dialog.setCanceledOnTouchOutside(false)
+                dialog.show()
             }
         }
 
@@ -65,27 +130,7 @@ class MainActivity : AppCompatActivity() {
         buttonPin8.setOnClickListener { writePin(getString(R.string.pin8)) }
         buttonPin9.setOnClickListener { writePin(getString(R.string.pin9)) }
 
-        // Backspace for PIN field
-        fun deletePin(
-            pinDigit1: TextView,
-            pinDigit2: TextView,
-            pinDigit3: TextView,
-            pinDigit4: TextView
-        ) {
-            if (pinDigit4.text.toString() != "_") {
-                pinDigit4.text = getString(R.string.pinPlaceholder)
-            } else if (pinDigit3.text.toString() != "_") {
-                pinDigit3.text = getString(R.string.pinPlaceholder)
-            } else if (pinDigit2.text.toString() != "_") {
-                pinDigit2.text = getString(R.string.pinPlaceholder)
-            } else if (pinDigit1.text.toString() != "_") {
-                pinDigit1.text = getString(R.string.pinPlaceholder)
-            }
-        }
-
         // Set On Click Listener for Delete button
-        buttonPinDelete.setOnClickListener {
-            deletePin(pinDigit1, pinDigit2, pinDigit3, pinDigit4)
-        }
+        buttonPinDelete.setOnClickListener { deletePin(0) }
     }
 }
