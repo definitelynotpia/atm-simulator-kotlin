@@ -3,10 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!--https://coolors.co/393e41-d3d0cb-e2c044-587b7f-1e2019-->
-    <color name="myrtle_green">#587B7F</color>
-    <color name="old_gold">#E2C044</color>
-    <color name="timberwolf">#D3D0CB</color>
-    <color name="onyx">#393E41</color>
-    <color name="eerie_black">#1E2019</color>
+    <color name="lightBlue">#EAF7FF</color>
+    <color name="darkBlue">#0055FF</color>
 </resources>

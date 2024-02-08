@@ -58,7 +58,7 @@
         android:layout_marginTop="-50dp"
         android:layout_marginBottom="-20dp"
         android:contentDescription="@string/blueWave"
-        app:srcCompat="@drawable/blue_wave_foreground" />
+        app:srcCompat="@drawable/dark_wave_foreground" />
 
     <GridLayout
         android:layout_width="match_parent"

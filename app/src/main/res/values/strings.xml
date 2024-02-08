@@ -24,6 +24,9 @@
     <!--PIN SUBMIT MESSAGES-->
     <string name="pinSubmitSuccess">Welcome to BankPro!</string>
     <string name="pinSubmitFailure">Incorrect PIN. Please try again.</string>
-    <string name="pinSubmitTimeout">PIN submission timed out. Exiting app.</string>"
+    <string name="pinSubmitTimeout">PIN submission timed out. Exiting app.</string>
+    <string name="currencyLabel">PHP</string>
+    <string name="accountBalance">100,000</string>
+    <string name="addBalance">Transfer money to your account.</string>
 
 </resources>

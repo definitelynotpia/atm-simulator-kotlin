@@ -41,24 +41,25 @@ class MainActivity : AppCompatActivity() {
 
         // Backspace for PIN field
         fun deletePin(deleteType: Int) {
+            val pinPlaceholder = getString(R.string.pinPlaceholder)
             when (deleteType) {
                 0 -> {
                     if (pinDigit4.text.toString() != "_") {
-                        pinDigit4.text = getString(R.string.pinPlaceholder)
+                        pinDigit4.text = pinPlaceholder
                     } else if (pinDigit3.text.toString() != "_") {
-                        pinDigit3.text = getString(R.string.pinPlaceholder)
+                        pinDigit3.text = pinPlaceholder
                     } else if (pinDigit2.text.toString() != "_") {
-                        pinDigit2.text = getString(R.string.pinPlaceholder)
+                        pinDigit2.text = pinPlaceholder
                     } else if (pinDigit1.text.toString() != "_") {
-                        pinDigit1.text = getString(R.string.pinPlaceholder)
+                        pinDigit1.text = pinPlaceholder
                     }
                 }
 
                 1 -> {
-                    pinDigit4.text = getString(R.string.pinPlaceholder)
-                    pinDigit3.text = getString(R.string.pinPlaceholder)
-                    pinDigit2.text = getString(R.string.pinPlaceholder)
-                    pinDigit1.text = getString(R.string.pinPlaceholder)
+                    pinDigit4.text = pinPlaceholder
+                    pinDigit3.text = pinPlaceholder
+                    pinDigit2.text = pinPlaceholder
+                    pinDigit1.text = pinPlaceholder
                 }
             }
         }
@@ -68,10 +69,10 @@ class MainActivity : AppCompatActivity() {
             if (pinDigit1.text.toString() != "_") {
                 if (pinDigit2.text.toString() != "_") {
                     if (pinDigit3.text.toString() != "_") {
-                        if (pinDigit4.text.toString() == "_") pinDigit4.setText(pinNumber)
-                    } else pinDigit3.setText(pinNumber)
-                } else pinDigit2.setText(pinNumber)
-            } else pinDigit1.setText(pinNumber)
+                        if (pinDigit4.text.toString() == "_") pinDigit4.text = pinNumber
+                    } else pinDigit3.text = pinNumber
+                } else pinDigit2.text = pinNumber
+            } else pinDigit1.text = pinNumber
 
             if (pinDigit4.text.toString() != "_") {
                 // Concatenate PIN numbers into one string
@@ -119,8 +120,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Set On Click Listeners for all number buttons
-        buttonPin0.setOnClickListener { writePin(getString(R.string.pin0)) }
         buttonPin1.setOnClickListener { writePin(getString(R.string.pin1)) }
+        buttonPin0.setOnClickListener { writePin(getString(R.string.pin0)) }
         buttonPin2.setOnClickListener { writePin(getString(R.string.pin2)) }
         buttonPin3.setOnClickListener { writePin(getString(R.string.pin3)) }
         buttonPin4.setOnClickListener { writePin(getString(R.string.pin4)) }
