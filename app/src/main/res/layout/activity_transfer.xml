@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Transfer">
+
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="200dp"
+        android:text="Hello Customer,"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/balance"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="200dp"
+        android:gravity="center"
+        android:text="10000 PHP"
+        android:textColor="#654E9F"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginEnd="200dp"
+        android:text="Your balance is:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="7dp"
+        android:text="PHP"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/editTextNumber"
+        app:layout_constraintTop_toBottomOf="@+id/receiver" />
+
+    <Button
+        android:id="@+id/buttonNum8"
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="7dp"
+        android:text="8"
+        app:layout_constraintStart_toEndOf="@+id/buttonNum7"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+
+    <Button
+        android:id="@+id/buttonNum4"
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="12dp"
+        android:text="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNum7" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="211dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="100dp"
+        android:text="TRANSFER MONEY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/delete" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="211dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="100dp"
+        android:text="BACK TO DASHBOARD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submit" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="135dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="102dp"
+        android:text="Delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonNum0"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNum3" />
+
+    <Button
+        android:id="@+id/buttonNum5"
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:text="5"
+        app:layout_constraintStart_toEndOf="@+id/buttonNum4"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNum8" />
+
+    <Button
+        android:id="@+id/buttonNum2"
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:text="2"
+        app:layout_constraintStart_toEndOf="@+id/buttonNum1"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNum5" />
+
+    <Button
+        android:id="@+id/buttonNum0"
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="12dp"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNum1" />
+
+    <Button
+        android:id="@+id/buttonNum6"
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="102dp"
+        android:text="6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonNum5"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNum9" />
+
+    <Button
+        android:id="@+id/buttonNum3"
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="102dp"
+        android:text="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonNum2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNum6" />
+
+    <Button
+        android:id="@+id/buttonNum1"
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="12dp"
+        android:text="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNum4" />
+
+    <Button
+        android:id="@+id/buttonNum9"
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="102dp"
+        android:text="9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonNum8"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+
+    <Button
+        android:id="@+id/buttonNum7"
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="7dp"
+        android:text="7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+
+    <EditText
+        android:id="@+id/accountNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="102dp"
+        android:ems="10"
+        android:hint="ACCOUNT NUMBER"
+        android:inputType="numberPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="161dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginEnd="102dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/receiver" />
+
+    <EditText
+        android:id="@+id/receiver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="102dp"
+        android:ems="10"
+        android:hint="RECEIVER NAME"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accountNo" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="127dp"
+        android:layout_marginTop="17dp"
+        android:text="Please fill all of the fields"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/balance" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

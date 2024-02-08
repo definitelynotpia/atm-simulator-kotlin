@@ -27,6 +27,7 @@
     <string name="pinSubmitTimeout">PIN submission timed out. Exiting app.</string>
     <string name="currencyLabel">PHP</string>
     <string name="accountBalance">100,000</string>
+    <string name="currentBalance">CURRENT BALANCE</string>
     <string name="addBalance">Transfer money to your account.</string>
     <string name="moneyTransferLabel">Send Money</string>
     <string name="moneyWithdrawLabel">Withdraw Money</string>
