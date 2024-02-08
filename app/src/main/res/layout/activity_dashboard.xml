@@ -13,11 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="-14dp"
         android:background="@color/lightBlue"
         android:columnCount="1"
         android:orientation="vertical"
-        android:paddingTop="15dp"
+        android:paddingTop="25dp"
         android:rowCount="3"
         tools:ignore="VisualLintBounds">
 
@@ -41,10 +40,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="50dp"
+            android:layout_margin="30dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="5dp">
 
@@ -82,23 +78,80 @@
 
                 <TextView
                     android:id="@+id/addBalance"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_columnWeight="1"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/circle_button"
                     android:clickable="true"
                     android:contentDescription="@string/addBalance"
                     android:focusable="true"
-                    android:paddingStart="10.5dp"
+                    android:paddingStart="12.5dp"
                     app:drawableStartCompat="@drawable/add_balance"
                     tools:ignore="RtlSymmetry" />
 
             </GridLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="25dp"
+            android:columnCount="3"
+            android:orientation="vertical"
+            android:rowCount="1">
+
+            <TextView
+                android:id="@+id/moneyDeposit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:clickable="true"
+
+                android:focusable="true"
+                android:fontFamily="sans-serif-condensed"
+                android:paddingEnd="40dp"
+                android:text="@string/moneyDepositLabel"
+                android:textColor="@color/black"
+                app:drawableTopCompat="@drawable/deposit_money_foreground"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/moneyTransfer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:clickable="true"
+
+                android:focusable="true"
+                android:fontFamily="sans-serif-condensed"
+                android:paddingEnd="40dp"
+                android:text="@string/moneyTransferLabel"
+                android:textColor="@color/black"
+                app:drawableTopCompat="@drawable/transfer_money_foreground"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/moneyWithdraw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:clickable="true"
+
+                android:focusable="true"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/moneyWithdrawLabel"
+                android:textColor="@color/black"
+                app:drawableTopCompat="@drawable/withdraw_money_foreground"
+                tools:ignore="RtlSymmetry" />
+
+        </GridLayout>
 
 
     </GridLayout>
@@ -108,8 +161,36 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginTop="-35dp"
-        android:layout_marginBottom="-20dp"
         android:contentDescription="@string/blueWave"
         app:srcCompat="@drawable/light_wave_foreground" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-25dp"
+        android:columnCount="1"
+        android:orientation="vertical"
+        android:rowCount="3"
+        tools:ignore="VisualLintBounds">
+
+        <TextView
+            android:id="@+id/notificationBin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingBottom="15dp"
+            android:text="@string/notificationsLabel"
+            android:textColor="@color/lightBlue"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/notifications"
+            tools:ignore="RtlSymmetry" />
+
+    </LinearLayout>
 
 </GridLayout>
