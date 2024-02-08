@@ -1,4 +1,334 @@
 <?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkBlue"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/lightBlue"
+        android:columnCount="1"
+        android:orientation="vertical"
+        android:paddingTop="25dp"
+        android:rowCount="3"
+        tools:ignore="VisualLintBounds">
+
+        <TextView
+            android:id="@+id/appLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:text="@string/appName"
+            android:textColor="@color/darkBlue"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/app_icon_dark"
+            tools:ignore="RtlSymmetry" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="30dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
+
+            <TextView
+                android:id="@+id/backToDashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_margin="20dp"
+                android:background="@drawable/custom_edittext"
+                android:fontFamily="sans-serif-medium"
+                android:padding="10dp"
+                android:text="@string/backToDashboard"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <GridLayout
+                android:id="@+id/accountBalanceDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="33dp"
+                android:columnCount="2"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:rowCount="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/currencyLabel"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/currencyLabel"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/accountBalance"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/accountBalance"
+                    android:textColor="@color/black"
+                    android:textSize="40sp" />
+
+                <EditText
+                    android:id="@+id/pinAmount"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
+
+            </GridLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:columnCount="3"
+            android:orientation="vertical"
+            android:rowCount="4">
+
+            <TextView
+                android:id="@+id/pin1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="end"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin1"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin4"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin7"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin7"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pinCancel"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="end"
+                android:layout_marginTop="-7dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:contentDescription="@string/pinBackspaceHint"
+                android:focusable="true"
+                android:paddingStart="14.5dp"
+                app:drawableStartCompat="@drawable/cancel"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/pin2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin2"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin5"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin8"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin8"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin0"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin0"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="start"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin3"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin6"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin6"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin9"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin9"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pinSubmit"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="start"
+                android:layout_marginTop="-7dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:contentDescription="@string/pinBackspaceHint"
+                android:focusable="true"
+                android:paddingStart="14.5dp"
+                app:drawableStartCompat="@drawable/confirm"
+                tools:ignore="RtlSymmetry" />
+
+        </GridLayout>
+
+
+    </GridLayout>
+
+    <ImageView
+        android:id="@+id/blueWave"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="-38dp"
+        android:contentDescription="@string/blueWave"
+        app:srcCompat="@drawable/light_wave_foreground" />
+
+</GridLayout>
+
+    <!--
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -234,3 +564,4 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+-->

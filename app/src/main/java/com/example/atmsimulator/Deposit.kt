@@ -15,8 +15,8 @@ class Deposit : AppCompatActivity() {
         setContentView(R.layout.activity_deposit)
 
         // Make variables for delete, submit and back to dashboard buttons
-        val deleteButton = findViewById<Button>(R.id.delete)
-        val submitButton = findViewById<Button>(R.id.submit)
+        val deleteButton = findViewById<Button>(R.id.pinDelete)
+        val submitButton = findViewById<Button>(R.id.pinSubmit)
         val backButton = findViewById<Button>(R.id.back)
 
         // Get values from previous activity

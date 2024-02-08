@@ -46,7 +46,7 @@
             app:cardElevation="5dp">
 
             <TextView
-                android:id="@+id/accountBalanceLabel"
+                android:id="@+id/backToDashboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
@@ -54,7 +54,7 @@
                 android:background="@drawable/custom_edittext"
                 android:fontFamily="sans-serif-medium"
                 android:padding="10dp"
-                android:text="@string/currentBalance"
+                android:text="@string/backToDashboard"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
 
@@ -64,103 +64,252 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="33dp"
-                android:columnCount="3"
+                android:columnCount="2"
                 android:orientation="vertical"
                 android:padding="24dp"
-                android:rowCount="1">
+                android:rowCount="2">
 
                 <TextView
-                    android:id="@+id/currencyLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
                     android:layout_gravity="center"
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="15dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/currencyLabel"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/currencyLabel"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/accountBalance"
-                    android:layout_width="wrap_content"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/accountBalance"
                     android:textColor="@color/black"
-                    android:textSize="50sp" />
+                    android:textSize="40sp" />
 
-                <ImageButton
-                    android:id="@+id/addBalance"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_row="0"
-                    android:layout_column="2"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/circle_button"
-                    android:contentDescription="@string/addBalance"
-                    app:srcCompat="@drawable/add_balance" />
+                <EditText
+                    android:id="@+id/pinAmount"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
 
             </GridLayout>
 
         </androidx.cardview.widget.CardView>
 
         <GridLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="20dp"
+            android:layout_margin="10dp"
             android:columnCount="3"
             android:orientation="vertical"
-            android:rowCount="1">
+            android:rowCount="4">
 
             <TextView
-                android:id="@+id/moneyDeposit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/pin1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_columnWeight="1"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="end"
+                android:background="@drawable/circle_button"
                 android:clickable="true"
-
                 android:focusable="true"
-                android:fontFamily="sans-serif-condensed"
-                android:paddingEnd="40dp"
-                android:text="@string/moneyDepositLabel"
-                android:textColor="@color/black"
-                app:drawableTopCompat="@drawable/deposit_money_foreground"
+                android:gravity="center"
+                android:text="@string/pin1"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin4"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin7"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin7"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pinCancel"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="end"
+                android:layout_marginTop="-7dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:contentDescription="@string/pinBackspaceHint"
+                android:focusable="true"
+                android:paddingStart="14.5dp"
+                app:drawableStartCompat="@drawable/cancel"
                 tools:ignore="RtlSymmetry" />
 
             <TextView
-                android:id="@+id/moneyTransfer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/pin2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="center_horizontal"
+                android:background="@drawable/circle_button"
                 android:clickable="true"
-
                 android:focusable="true"
-                android:fontFamily="sans-serif-condensed"
-                android:paddingEnd="40dp"
-                android:text="@string/moneyTransferLabel"
-                android:textColor="@color/black"
-                app:drawableTopCompat="@drawable/transfer_money_foreground"
-                tools:ignore="RtlSymmetry" />
+                android:gravity="center"
+                android:text="@string/pin2"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/moneyWithdraw"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/pin5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_button"
                 android:clickable="true"
-
                 android:focusable="true"
-                android:fontFamily="sans-serif-condensed"
-                android:text="@string/moneyWithdrawLabel"
-                android:textColor="@color/black"
-                app:drawableTopCompat="@drawable/withdraw_money_foreground"
+                android:gravity="center"
+                android:text="@string/pin5"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin8"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin8"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin0"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin0"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="start"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin3"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin6"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin6"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pin9"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/pin9"
+                android:textAlignment="center"
+                android:textColor="#0000ff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pinSubmit"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="start"
+                android:layout_marginTop="-7dp"
+                android:background="@drawable/circle_button"
+                android:clickable="true"
+                android:contentDescription="@string/pinBackspaceHint"
+                android:focusable="true"
+                android:paddingStart="14.5dp"
+                app:drawableStartCompat="@drawable/confirm"
                 tools:ignore="RtlSymmetry" />
 
         </GridLayout>
@@ -175,35 +324,6 @@
         android:layout_marginTop="-38dp"
         android:contentDescription="@string/blueWave"
         app:srcCompat="@drawable/light_wave_foreground" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="-25dp"
-        android:columnCount="1"
-        android:orientation="vertical"
-        android:rowCount="3"
-        tools:ignore="VisualLintBounds">
-
-        <TextView
-            android:id="@+id/notificationBin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_gravity="center"
-            android:layout_marginTop="18dp"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:paddingBottom="15dp"
-            android:text="@string/notificationsLabel"
-            android:textColor="@color/lightBlue"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:drawableStartCompat="@drawable/notifications"
-            tools:ignore="RtlSymmetry" />
-
-    </LinearLayout>
 
 </GridLayout>
 

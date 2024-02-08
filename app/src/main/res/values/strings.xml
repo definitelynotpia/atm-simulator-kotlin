@@ -33,5 +33,6 @@
     <string name="moneyWithdrawLabel">Withdraw Money</string>
     <string name="notificationsLabel">NOTIFICATIONS</string>
     <string name="moneyDepositLabel">Deposit Money</string>
+    <string name="backToDashboard">BACK TO DASHBOARD</string>
 
 </resources>
