@@ -7,7 +7,7 @@
     android:background="@color/darkBlue"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Dashboard">
 
     <GridLayout
         android:layout_width="match_parent"
@@ -38,71 +38,43 @@
             tools:ignore="RtlSymmetry" />
 
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="30dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="5dp">
 
-            <TextView
-                android:id="@+id/accountBalanceLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_margin="20dp"
-                android:background="@drawable/custom_edittext"
-                android:fontFamily="sans-serif-medium"
-                android:padding="10dp"
-                android:text="@string/currentBalance"
-                android:textColor="@color/white"
-                android:textSize="12sp" />
-
             <GridLayout
-                android:id="@+id/accountBalanceDisplay"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="33dp"
-                android:columnCount="3"
-                android:orientation="vertical"
-                android:padding="24dp"
-                android:rowCount="1">
+                android:columnCount="1"
+                android:padding="15dp"
+                android:rowCount="2">
 
                 <TextView
-                    android:id="@+id/currencyLabel"
+                    android:id="@+id/accountBalanceLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/button_dark"
                     android:fontFamily="sans-serif-medium"
-                    android:text="@string/currencyLabel"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:padding="10dp"
+                    android:text="@string/currentBalance"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/accountBalance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_gravity="end"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="sans-serif-medium"
-                    android:text="@string/accountBalance"
+                    android:paddingTop="5dp"
+                    android:text=""
                     android:textColor="@color/black"
-                    android:textSize="50sp" />
-
-                <ImageButton
-                    android:id="@+id/addBalance"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_row="0"
-                    android:layout_column="2"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/circle_button"
-                    android:contentDescription="@string/addBalance"
-                    app:srcCompat="@drawable/add_balance" />
-
+                    android:textSize="45sp"
+                    app:drawableStartCompat="@drawable/pesos_big" />
             </GridLayout>
 
         </androidx.cardview.widget.CardView>
@@ -111,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="30dp"
             android:columnCount="3"
             android:orientation="vertical"
             android:rowCount="1">
@@ -125,8 +97,8 @@
                 android:clickable="true"
 
                 android:focusable="true"
-                android:fontFamily="sans-serif-condensed"
-                android:paddingEnd="40dp"
+                android:fontFamily="sans-serif-medium"
+                android:paddingEnd="50dp"
                 android:text="@string/moneyDepositLabel"
                 android:textColor="@color/black"
                 app:drawableTopCompat="@drawable/deposit_money_foreground"
@@ -141,8 +113,8 @@
                 android:clickable="true"
 
                 android:focusable="true"
-                android:fontFamily="sans-serif-condensed"
-                android:paddingEnd="40dp"
+                android:fontFamily="sans-serif-medium"
+                android:paddingEnd="50dp"
                 android:text="@string/moneyTransferLabel"
                 android:textColor="@color/black"
                 app:drawableTopCompat="@drawable/transfer_money_foreground"
@@ -157,7 +129,7 @@
                 android:clickable="true"
 
                 android:focusable="true"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="sans-serif-medium"
                 android:text="@string/moneyWithdrawLabel"
                 android:textColor="@color/black"
                 app:drawableTopCompat="@drawable/withdraw_money_foreground"
@@ -202,6 +174,64 @@
             android:textStyle="bold"
             app:drawableStartCompat="@drawable/notifications"
             tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/notificationDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:layout_marginTop="-10dp"
+            android:layout_marginBottom="-20dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:paddingBottom="15dp"
+            android:text="@string/notificationDescription"
+            android:textColor="@color/lightBlue"
+            android:textSize="14sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="30dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1"
+                android:padding="15dp"
+                android:rowCount="2">
+
+                <TextView
+                    android:id="@+id/notificationLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_light"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="10dp"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/transactionAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:paddingTop="5dp"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:drawableStartCompat="@drawable/pesos_small" />
+            </GridLayout>
+
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

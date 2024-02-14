@@ -9,15 +9,17 @@ import android.widget.Toast
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // Tries
         var tries = 4
-        // Valid pin
-        val validPin1 = "1234"
-        val validPin2 = "5678"
+
+        // Valid pins
+            val validPin1 = "1234"
+            val validPin2 = "5678"
 
         val pinDigit1 = findViewById<TextView>(R.id.pinDigit1)
         val pinDigit2 = findViewById<TextView>(R.id.pinDigit2)
@@ -86,22 +88,26 @@ class MainActivity : AppCompatActivity() {
 
                 // Check if there are more tries
                 if (tries <= 1) {
+                    // no more attempts
                     builder.setMessage("You have 0 tries left! App will be closing now")
                         .setTitle("You have no tries left!").setPositiveButton("Exit App") { _, _ ->
                             moveTaskToBack(true)
                             exitProcess(-1)
                         }
                 } else if (newPin == validPin1) {
+                    // correct pin 1
                     builder.setMessage("You have successfully entered the correct pin number")
                         .setTitle("Entered PIN Success!").setPositiveButton("Continue") { _, _ ->
                             startActivity(Intent(this, Dashboard::class.java))
                         }
                 } else if (newPin == validPin2) {
+                    // correct pin 2
                     builder.setMessage("You have successfully entered the correct pin number")
                         .setTitle("Entered PIN Success!").setPositiveButton("Continue") { _, _ ->
                             startActivity(Intent(this, Dashboard::class.java))
                         }
                 } else {
+                    // incorrect pin
                     tries--
                     builder.setMessage("You have entered the wrong pin number")
                         .setTitle("Wrong PIN Entered").setPositiveButton("Try Again") { _, _ ->

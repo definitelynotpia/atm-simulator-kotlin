@@ -25,14 +25,29 @@
     <string name="pinSubmitSuccess">Welcome to BankPro!</string>
     <string name="pinSubmitFailure">Incorrect PIN. Please try again.</string>
     <string name="pinSubmitTimeout">PIN submission timed out. Exiting app.</string>
+
+    <!--DASHBOARD-->
     <string name="currencyLabel">PHP</string>
-    <string name="accountBalance">100,000</string>
     <string name="currentBalance">CURRENT BALANCE</string>
     <string name="addBalance">Transfer money to your account.</string>
-    <string name="moneyTransferLabel">Send Money</string>
-    <string name="moneyWithdrawLabel">Withdraw Money</string>
+    <string name="moneyTransferLabel">TRANSFER</string>
+    <string name="moneyWithdrawLabel">WITHDRAW</string>
     <string name="notificationsLabel">NOTIFICATIONS</string>
-    <string name="moneyDepositLabel">Deposit Money</string>
-    <string name="backToDashboard">BACK TO DASHBOARD</string>
+    <string name="moneyDepositLabel">DEPOSIT</string>
+
+    <string name="transactionCancel">Cancel</string>
+    <string name="transactionSubmit">Submit</string>
+
+    <!--DEPOSIT PAGE-->
+    <string name="quickDepositLabel">QUICK DEPOSIT</string>
+    <string name="quickWithdrawLabel">QUICK WITHDRAW</string>
+    <string name="quickDeposit1">100.0</string>
+    <string name="quickDeposit3">500.0</string>
+    <string name="quickDeposit5">2500.0</string>
+    <string name="quickDeposit2">250.0</string>
+    <string name="quickDeposit4">1000.0</string>
+    <string name="quickDeposit6">5000.0</string>
+    <string name="depositAmountPlaceholder">0.0</string>
+    <string name="notificationDescription">View your most recent transaction here.</string>
 
 </resources>

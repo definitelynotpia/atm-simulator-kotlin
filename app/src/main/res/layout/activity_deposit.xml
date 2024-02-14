@@ -7,7 +7,7 @@
     android:background="@color/darkBlue"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Deposit">
 
     <GridLayout
         android:layout_width="match_parent"
@@ -16,8 +16,7 @@
         android:background="@color/lightBlue"
         android:columnCount="1"
         android:orientation="vertical"
-        android:paddingTop="25dp"
-        android:rowCount="3"
+        android:rowCount="2"
         tools:ignore="VisualLintBounds">
 
         <TextView
@@ -27,9 +26,9 @@
             android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
+            android:layout_marginBottom="-15dp"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
-            android:paddingBottom="10dp"
             android:text="@string/appName"
             android:textColor="@color/darkBlue"
             android:textSize="30sp"
@@ -38,7 +37,7 @@
             tools:ignore="RtlSymmetry" />
 
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="30dp"
@@ -46,15 +45,15 @@
             app:cardElevation="5dp">
 
             <TextView
-                android:id="@+id/backToDashboard"
+                android:id="@+id/depositLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_margin="20dp"
-                android:background="@drawable/custom_edittext"
+                android:background="@drawable/button_dark"
                 android:fontFamily="sans-serif-medium"
                 android:padding="10dp"
-                android:text="@string/backToDashboard"
+                android:text="@string/moneyDepositLabel"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
 
@@ -63,256 +62,71 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="40dp"
                 android:columnCount="2"
                 android:orientation="vertical"
                 android:padding="24dp"
-                android:rowCount="2">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="15dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="@string/currencyLabel"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="15dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="@string/currencyLabel"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
+                android:rowCount="3">
 
                 <TextView
                     android:id="@+id/accountBalance"
-                    android:layout_width="250dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="center"
+                    android:layout_columnSpan="2"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="-20dp"
                     android:fontFamily="sans-serif-medium"
-                    android:text="@string/accountBalance"
+                    android:text=""
                     android:textColor="@color/black"
-                    android:textSize="40sp" />
+                    android:textSize="40sp"
+                    app:drawableStartCompat="@drawable/pesos_big" />
 
                 <EditText
-                    android:id="@+id/pinAmount"
-                    android:layout_width="250dp"
+                    android:id="@+id/depositAmount"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:autofillHints=""
+                    android:layout_columnSpan="2"
+                    android:layout_gravity="start"
+                    android:autofillHints="Deposit amount"
                     android:ems="10"
-                    android:inputType="numberDecimal" />
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="@string/depositAmountPlaceholder"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/black"
+                    android:textColorHint="#7F7F7F"
+                    android:textSize="40sp"
+                    app:drawableStartCompat="@drawable/pesos_big" />
+
+                <TextView
+                    android:id="@+id/depositCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_light"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="10dp"
+                    android:text="@string/transactionCancel"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/depositSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_light"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="10dp"
+                    android:text="@string/transactionSubmit"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="14sp" />
 
             </GridLayout>
 
         </androidx.cardview.widget.CardView>
-
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
-            android:columnCount="3"
-            android:orientation="vertical"
-            android:rowCount="4">
-
-            <TextView
-                android:id="@+id/pin1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_gravity="end"
-                android:background="@drawable/circle_button"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="@string/pin1"
-                android:textAlignment="center"
-                android:textColor="#0000ff"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/pin4"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_gravity="end"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/circle_button"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="@string/pin4"
-                android:textAlignment="center"
-                android:textColor="#0000ff"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/pin7"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_gravity="end"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/circle_button"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="@string/pin7"
-                android:textAlignment="center"
-                android:textColor="#0000ff"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/pinCancel"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_gravity="end"
-                android:layout_marginTop="-7dp"
-                android:background="@drawable/circle_button"
-                android:clickable="true"
-                android:contentDescription="@string/pinBackspaceHint"
-                android:focusable="true"
-                android:paddingStart="14.5dp"
-                app:drawableStartCompat="@drawable/cancel"
-                tools:ignore="RtlSymmetry" />
-
-            <TextView
-                android:id="@+id/pin2"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/circle_button"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="@string/pin2"
-                android:textAlignment="center"
-                android:textColor="#0000ff"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/pin5"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/circle_button"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="@string/pin5"
-                android:textAlignment="center"
-                android:textColor="#0000ff"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/pin8"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/circle_button"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="@string/pin8"
-                android:textAlignment="center"
-                android:textColor="#0000ff"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/pin0"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/circle_button"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="@string/pin0"
-                android:textAlignment="center"
-                android:textColor="#0000ff"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/pin3"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_gravity="start"
-                android:background="@drawable/circle_button"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="@string/pin3"
-                android:textAlignment="center"
-                android:textColor="#0000ff"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/pin6"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_gravity="start"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/circle_button"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="@string/pin6"
-                android:textAlignment="center"
-                android:textColor="#0000ff"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/pin9"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_gravity="start"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/circle_button"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="@string/pin9"
-                android:textAlignment="center"
-                android:textColor="#0000ff"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/pinSubmit"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_columnWeight="1"
-                android:layout_gravity="start"
-                android:layout_marginTop="-7dp"
-                android:background="@drawable/circle_button"
-                android:clickable="true"
-                android:contentDescription="@string/pinBackspaceHint"
-                android:focusable="true"
-                android:paddingStart="14.5dp"
-                app:drawableStartCompat="@drawable/confirm"
-                tools:ignore="RtlSymmetry" />
-
-        </GridLayout>
 
 
     </GridLayout>
@@ -325,244 +139,228 @@
         android:contentDescription="@string/blueWave"
         app:srcCompat="@drawable/light_wave_foreground" />
 
-</GridLayout>
-
-    <!--
-        <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Deposit">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-15dp"
+        android:columnCount="2"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:rowCount="4">
 
         <TextView
-            android:id="@+id/balance"
+            android:id="@+id/notificationBin"
             android:layout_width="wrap_content"
-            android:layout_height="44dp"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="200dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="center"
+            android:layout_marginBottom="-10dp"
+            android:fontFamily="sans-serif-medium"
             android:gravity="center"
-            android:text="10000 PHP"
-            android:textColor="#654E9F"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="47dp"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="52dp"
-            android:layout_marginEnd="200dp"
-            android:text="Hello Customer,"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="200dp"
-            android:layout_marginEnd="200dp"
-            android:text="Your balance is:"
+            android:text="@string/quickDepositLabel"
+            android:textColor="@color/lightBlue"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="26dp"
-            android:layout_marginEnd="200dp"
-            android:text="Deposit Balance:"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/balance" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="30dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="24dp"
-            android:text="PHP"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/editTextNumber"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:padding="15dp"
+                android:rowCount="1">
 
-        <Button
-            android:id="@+id/buttonNum8"
-            android:layout_width="61dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="7dp"
-            android:text="8"
-            app:layout_constraintStart_toEndOf="@+id/buttonNum7"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+                <TextView
+                    android:id="@+id/quickDeposit1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/quickDeposit1"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:drawableStartCompat="@drawable/pesos_small" />
 
-        <Button
-            android:id="@+id/buttonNum4"
-            android:layout_width="61dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="102dp"
-            android:layout_marginTop="12dp"
-            android:text="4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonNum7" />
+            </GridLayout>
 
-        <Button
-            android:id="@+id/submit"
-            android:layout_width="211dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="100dp"
-            android:text="DEPOSIT AMOUNT"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/delete" />
+        </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/back"
-            android:layout_width="211dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="100dp"
-            android:text="BACK TO DASHBOARD"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/submit" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="-15dp"
+            android:layout_marginBottom="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
 
-        <Button
-            android:id="@+id/delete"
-            android:layout_width="135dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="102dp"
-            android:text="Delete"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/buttonNum0"
-            app:layout_constraintTop_toBottomOf="@+id/buttonNum3" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:padding="15dp"
+                android:rowCount="1">
 
-        <Button
-            android:id="@+id/buttonNum5"
-            android:layout_width="61dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:text="5"
-            app:layout_constraintStart_toEndOf="@+id/buttonNum4"
-            app:layout_constraintTop_toBottomOf="@+id/buttonNum8" />
+                <TextView
+                    android:id="@+id/quickDeposit3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/quickDeposit3"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:drawableStartCompat="@drawable/pesos_small" />
 
-        <Button
-            android:id="@+id/buttonNum2"
-            android:layout_width="61dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:text="2"
-            app:layout_constraintStart_toEndOf="@+id/buttonNum1"
-            app:layout_constraintTop_toBottomOf="@+id/buttonNum5" />
+            </GridLayout>
 
-        <Button
-            android:id="@+id/buttonNum0"
-            android:layout_width="61dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="102dp"
-            android:layout_marginTop="20dp"
-            android:text="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonNum1" />
+        </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/buttonNum6"
-            android:layout_width="61dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="102dp"
-            android:text="6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/buttonNum5"
-            app:layout_constraintTop_toBottomOf="@+id/buttonNum9" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
 
-        <Button
-            android:id="@+id/buttonNum3"
-            android:layout_width="61dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="102dp"
-            android:text="3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/buttonNum2"
-            app:layout_constraintTop_toBottomOf="@+id/buttonNum6" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:padding="15dp"
+                android:rowCount="1">
 
-        <Button
-            android:id="@+id/buttonNum1"
-            android:layout_width="61dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="102dp"
-            android:layout_marginTop="12dp"
-            android:text="1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonNum4" />
+                <TextView
+                    android:id="@+id/quickDeposit5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/quickDeposit5"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:drawableStartCompat="@drawable/pesos_small" />
 
-        <Button
-            android:id="@+id/buttonNum9"
-            android:layout_width="61dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="102dp"
-            android:text="9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/buttonNum8"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+            </GridLayout>
+        </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/buttonNum7"
-            android:layout_width="61dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="102dp"
-            android:layout_marginTop="7dp"
-            android:text="7"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
 
-        <EditText
-            android:id="@+id/editTextNumber"
-            android:layout_width="161dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="102dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="102dp"
-            android:ems="10"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:padding="15dp"
+                android:rowCount="1">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/quickDeposit2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/quickDeposit2"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:drawableStartCompat="@drawable/pesos_small" />
 
-    -->
+            </GridLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="-15dp"
+            android:layout_marginBottom="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:padding="15dp"
+                android:rowCount="1">
+
+                <TextView
+                    android:id="@+id/quickDeposit4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/quickDeposit4"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:drawableStartCompat="@drawable/pesos_small" />
+
+            </GridLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:padding="15dp"
+                android:rowCount="1">
+
+                <TextView
+                    android:id="@+id/quickDeposit6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/quickDeposit6"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:drawableStartCompat="@drawable/pesos_small" />
+
+            </GridLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+
+</GridLayout>
