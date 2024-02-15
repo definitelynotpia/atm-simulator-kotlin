@@ -20,13 +20,12 @@ class Deposit : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_deposit)
 
-        val intent = Intent(this, Dashboard::class.java)
-
         // Get user input
         val userDepositAmount = findViewById<EditText>(R.id.depositAmount)
 
         // Get values from previous activity
         val balance = intent.getDoubleExtra("updatedBalance", 100000.0)
+        val intent = Intent(this, Dashboard::class.java)
 
         // Set balance display to current balance value
         val balanceString = balance.toString()

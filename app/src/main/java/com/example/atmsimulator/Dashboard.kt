@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 
@@ -25,7 +26,7 @@ class Dashboard : AppCompatActivity() {
         // Update balance display on dashboard
         val accountBalance = findViewById<TextView>(R.id.accountBalance)
         accountBalance.text = balanceString
-        
+
         val notificationDescription = findViewById<TextView>(R.id.notificationDescription)
         val notificationCard = findViewById<CardView>(R.id.notification)
 
@@ -70,6 +71,10 @@ class Dashboard : AppCompatActivity() {
         }
 
         depositButton.setOnClickListener {
+            Toast.makeText(
+                this, balance.toString(), Toast.LENGTH_SHORT
+            ).show()
+
             val intent = Intent(this, Deposit::class.java)
             intent.putExtra("updatedBalance", balance)
             startActivity(intent)
