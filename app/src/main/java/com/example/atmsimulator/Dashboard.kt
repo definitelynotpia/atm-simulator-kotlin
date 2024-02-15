@@ -25,12 +25,9 @@ class Dashboard : AppCompatActivity() {
         // Update balance display on dashboard
         val accountBalance = findViewById<TextView>(R.id.accountBalance)
         accountBalance.text = balanceString
+        
         val notificationDescription = findViewById<TextView>(R.id.notificationDescription)
         val notificationCard = findViewById<CardView>(R.id.notification)
-
-        // hide notification card
-        notificationDescription.text = getString(R.string.notificationNoContent)
-        notificationCard.visibility = View.GONE
 
         // If there is a transaction, display the notification (transaction receipt)
         if (balance != initialBalance) {
@@ -53,34 +50,35 @@ class Dashboard : AppCompatActivity() {
             initialBalanceAmount.text = initialBalance.toString()
             transactionAmount.text = (balance - initialBalance).toString()
             newBalanceAmount.text = balanceString
+        } else {
+            // hide notification card
+            notificationDescription.text = getString(R.string.notificationNoContent)
+            notificationCard.visibility = View.GONE
         }
 
         // Make Variables for Buttons
         val depositButton = findViewById<TextView>(R.id.moneyDeposit)
-//        val transferButton = findViewById<TextView>(R.id.moneyTransfer)
-//        val withdrawButton = findViewById<TextView>(R.id.moneyWithdraw)
+        val transferButton = findViewById<TextView>(R.id.moneyTransfer)
+        val withdrawButton = findViewById<TextView>(R.id.moneyWithdraw)
 
         // Set On Click Listeners for all buttons
 
-//        withdrawButton.setOnClickListener {
-//            val intent = Intent(this, Withdraw::class.java)
-//            intent.putExtra("updatedBalance", balance)
-//            intent.putExtra("newReference", referenceNo)
-//            startActivity(intent)
-//        }
-
-        depositButton.setOnClickListener {
-            val intent = Intent(this, Deposit::class.java)
-            intent.putExtra("transactionReference", transactionTimestamp)
-            intent.putExtra("initialBalance", balance)
+        withdrawButton.setOnClickListener {
+            val intent = Intent(this, Withdraw::class.java)
+            intent.putExtra("updatedBalance", balance)
             startActivity(intent)
         }
 
-//        transferButton.setOnClickListener {
-//            val intent = Intent(this, Transfer::class.java)
-//            intent.putExtra("updatedBalance", balance)
-//            intent.putExtra("newReference", referenceNo)
-//            startActivity(intent)
-//        }
+        depositButton.setOnClickListener {
+            val intent = Intent(this, Deposit::class.java)
+            intent.putExtra("updatedBalance", balance)
+            startActivity(intent)
+        }
+
+        transferButton.setOnClickListener {
+            val intent = Intent(this, Transfer::class.java)
+            intent.putExtra("updatedBalance", balance)
+            startActivity(intent)
+        }
     }
 }

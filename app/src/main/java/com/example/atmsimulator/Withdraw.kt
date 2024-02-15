@@ -1,122 +1,120 @@
 package com.example.atmsimulator
 
-import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import java.time.LocalDateTime
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
+import java.util.UUID
 
 class Withdraw : AppCompatActivity() {
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_withdraw)
 
-//        // Function to let the number button UI write in the withdraw amount field
-//        fun writeForm(num: Int, amount: EditText) {
-//            val amountString = amount.text.toString() + num.toString()
-//            amount.setText(amountString)
-//        }
-//
-//        // Function to let the button UI delete(backspace) in the withdraw amount field
-//        fun reduceForm(amount: EditText) {
-//            amount.setText(amount.text.toString().dropLast(1))
-//        }
-//
-//        // Make variables for delete, submit and back to dashboard buttons
-//        val deleteButton = findViewById<Button>(R.id.delete)
-//        val submitButton = findViewById<Button>(R.id.submit)
-//        val backButton = findViewById<Button>(R.id.back)
-//
-//        // Get values from previous activity
-//        var balance = intent.getIntExtra("newBalance", 10000)
-//        val balanceString = "$balance PHP"
-//        val balanceText = findViewById<TextView>(R.id.balance)
-//        balanceText.setText(balanceString)
-//        val referenceNo = intent.getIntExtra("newReference", 100)
-//
-//        // NumPad UI
-//        val buttonNum0 = findViewById<Button>(R.id.buttonNum0)
-//        val buttonNum1 = findViewById<Button>(R.id.buttonNum1)
-//        val buttonNum2 = findViewById<Button>(R.id.buttonNum2)
-//        val buttonNum3 = findViewById<Button>(R.id.buttonNum3)
-//        val buttonNum4 = findViewById<Button>(R.id.buttonNum4)
-//        val buttonNum5 = findViewById<Button>(R.id.buttonNum5)
-//        val buttonNum6 = findViewById<Button>(R.id.buttonNum6)
-//        val buttonNum7 = findViewById<Button>(R.id.buttonNum7)
-//        val buttonNum8 = findViewById<Button>(R.id.buttonNum8)
-//        val buttonNum9 = findViewById<Button>(R.id.buttonNum9)
-//
-//        // Make withdraw field variable
-//        val withdrawForm = findViewById<EditText>(R.id.editTextNumber)
-//        withdrawForm.setShowSoftInputOnFocus(false)
-//
-//        // Set on click listener for all number button
-//        buttonNum0.setOnClickListener { writeForm(0, withdrawForm) }
-//        buttonNum1.setOnClickListener { writeForm(1, withdrawForm) }
-//        buttonNum2.setOnClickListener { writeForm(2, withdrawForm) }
-//        buttonNum3.setOnClickListener { writeForm(3, withdrawForm) }
-//        buttonNum4.setOnClickListener { writeForm(4, withdrawForm) }
-//        buttonNum5.setOnClickListener { writeForm(5, withdrawForm) }
-//        buttonNum6.setOnClickListener { writeForm(6, withdrawForm) }
-//        buttonNum7.setOnClickListener { writeForm(7, withdrawForm) }
-//        buttonNum8.setOnClickListener { writeForm(8, withdrawForm) }
-//        buttonNum9.setOnClickListener { writeForm(9, withdrawForm) }
-//
-//        // Set on click listener for delete button
-//        deleteButton.setOnClickListener { reduceForm(withdrawForm) }
-//
-//        // Set on click listener for submit button
-//        submitButton.setOnClickListener {
-//
-//            //Makes Alert Dialog
-//            val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-//
-//            // Checks if withdraw amount is empty or higher than balance
-//            if (withdrawForm.text.toString() == "") {
-//                Toast.makeText(
-//                    this,
-//                    "Please insert amount first",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            } else if (withdrawForm.text.toString().toInt() > balance) {
-//                Toast.makeText(
-//                    this,
-//                    "Withdraw amount higher than balance",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            }
-//
-//            // Shows alert dialog once withdraw amount is submitted
-//            else {
-//                builder
-//                    .setMessage("You will withdraw: " + withdrawForm.text.toString() + " PHP")
-//                    .setTitle("Confirm Details Before Continuing!")
-//                    .setPositiveButton("Continue") { _, _ ->
-//                        val balanceTextContent = "$balance PHP"
-//                        balance -= withdrawForm.text.toString().toInt()
-//                        balanceText.setText(balanceTextContent)
-//                        withdrawForm.setText("")
-//                        Toast.makeText(
-//                            this,
-//                            "Your new balance is:$balance PHP",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                    }.setNegativeButton("Cancel") { _, _ ->
-//                    }
-//                val dialog: AlertDialog = builder.create()
-//                dialog.show()
-//
-//            }
-//        }
-//        // Set on click listener for back to dashboard button
-//        backButton.setOnClickListener {
-//            val intent = Intent(this, Dashboard::class.java)
-//            intent.putExtra("newBalance", balance)
-//            intent.putExtra("newReference", referenceNo)
-//            startActivity(intent)
-//        }
+        val intent = Intent(this, Dashboard::class.java)
+
+        // Get user input
+        val userWithdrawAmount = findViewById<EditText>(R.id.withdrawAmount)
+
+        // Get values from previous activity
+        val balance = intent.getDoubleExtra("updatedBalance", 100000.0)
+
+        // Set balance display to current balance value
+        val balanceString = balance.toString()
+        val balanceDisplay = findViewById<TextView>(R.id.accountBalance)
+        balanceDisplay.text = balanceString
+
+        // Make variables for delete, submit and back to dashboard buttons
+        val submitButton = findViewById<TextView>(R.id.withdrawSubmit)
+        val backButton = findViewById<TextView>(R.id.withdrawCancel)
+
+        // Get quick withdraw buttons
+        val withdrawButton1 = findViewById<TextView>(R.id.quickDeposit1)
+        val withdrawButton2 = findViewById<TextView>(R.id.quickDeposit2)
+        val withdrawButton3 = findViewById<TextView>(R.id.quickDeposit3)
+        val withdrawButton4 = findViewById<TextView>(R.id.quickDeposit4)
+        val withdrawButton5 = findViewById<TextView>(R.id.quickDeposit5)
+        val withdrawButton6 = findViewById<TextView>(R.id.quickDeposit6)
+
+        // Return to dashboard
+        backButton.setOnClickListener {
+            startActivity(Intent(this, Dashboard::class.java), null)
+        }
+
+        fun submit() {
+            val withdrawAmountSubmitted = userWithdrawAmount.text.toString()
+
+            // Check if withdraw amount is not filled
+            if (withdrawAmountSubmitted == "") {
+                Toast.makeText(
+                    this, "Please insert amount first", Toast.LENGTH_SHORT
+                ).show()
+            }// Shows alert dialog once withdraw amount is submitted
+            else {
+                // add withdrawed amount to balance
+                val newBalance = balance - withdrawAmountSubmitted.toDouble()
+                // generate random UUID
+                val referenceNo = UUID.randomUUID().mostSignificantBits.toString(36).substring(1)
+                // get current timestamp
+                val transactionTimestamp = LocalDateTime.now().format(
+                    DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a").withZone(ZoneOffset.UTC)
+                )
+
+                // send new balance value to Dashboard
+                intent.putExtra("transactionType", "WITHDRAW")
+                intent.putExtra("transactionTimestamp", transactionTimestamp)
+                intent.putExtra("transactionReference", referenceNo)
+                intent.putExtra("initialBalance", balance)
+                intent.putExtra("updatedBalance", newBalance)
+                startActivity(intent)
+            }
+        }
+
+        withdrawButton1.setOnClickListener {
+            userWithdrawAmount.setText(getString(R.string.quickDeposit1))
+            submit()
+        }
+        withdrawButton2.setOnClickListener {
+            userWithdrawAmount.setText(getString(R.string.quickDeposit2))
+            submit()
+        }
+        withdrawButton3.setOnClickListener {
+            userWithdrawAmount.setText(getString(R.string.quickDeposit3))
+            submit()
+        }
+        withdrawButton4.setOnClickListener {
+            userWithdrawAmount.setText(getString(R.string.quickDeposit4))
+            submit()
+        }
+        withdrawButton5.setOnClickListener {
+            userWithdrawAmount.setText(getString(R.string.quickDeposit5))
+            submit()
+        }
+        withdrawButton6.setOnClickListener {
+            userWithdrawAmount.setText(getString(R.string.quickDeposit6))
+            submit()
+        }
+
+        // Set on click listener for submit button
+        submitButton.setOnClickListener { submit() }
+
+        // Set on click listener for back to dashboard button
+        backButton.setOnClickListener {
+            intent.putExtra("transactionType", "none")
+            intent.putExtra("transactionTimestamp", "")
+            intent.putExtra("transactionReference", "")
+            intent.putExtra("initialBalance", balance)
+            intent.putExtra("updatedBalance", balance)
+            startActivity(intent)
+        }
     }
 }

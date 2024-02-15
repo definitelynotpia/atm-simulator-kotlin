@@ -37,9 +37,10 @@
 
     <string name="notificationDescription">View your most recent transaction here.</string>
     <string name="notificationNoContent">No transactions found for this account.</string>
-    
+
     <!--TRANSACTIONS-->
     <string name="quickDepositLabel">QUICK DEPOSIT</string>
+    <string name="quickTransferLabel">QUICK TRANSFER</string>
     <string name="quickWithdrawLabel">QUICK WITHDRAW</string>
     <string name="quickDeposit1">100.0</string>
     <string name="quickDeposit3">500.0</string>
@@ -47,7 +48,7 @@
     <string name="quickDeposit2">250.0</string>
     <string name="quickDeposit4">1000.0</string>
     <string name="quickDeposit6">5000.0</string>
-    <string name="depositAmountPlaceholder">0.0</string>
+    <string name="transactionAmountPlaceholder">0.0</string>
     <string name="transactionCancel">Cancel</string>
     <string name="transactionSubmit">Submit</string>
 

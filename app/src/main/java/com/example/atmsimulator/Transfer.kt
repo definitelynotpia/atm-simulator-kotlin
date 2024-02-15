@@ -1,152 +1,120 @@
 package com.example.atmsimulator
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
-import android.text.InputType
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Locale
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import java.time.LocalDateTime
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
+import java.util.UUID
 
 class Transfer : AppCompatActivity() {
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transfer)
 
-//        // Function to let the number button UI write in the deposit amount field
-//        fun writeForm(num: Int, amount: EditText) {
-//            val amountText = amount.text.toString() + num.toString()
-//            amount.setText(amountText)
-//        }
-//
-//        // Function to let the button UI delete(backspace) in the transfer amount field
-//        fun reduceForm(amount: EditText) {
-//            amount.setText(amount.text.toString().dropLast(1))
-//        }
-//
-//        // Make variables for delete, submit and back to dashboard buttons
-//        val deleteButton = findViewById<Button>(R.id.delete)
-//        val submitButton = findViewById<Button>(R.id.submit)
-//        val backButton = findViewById<Button>(R.id.back)
-//
-//        // Get values from previous activity
-//        var balance = intent.getIntExtra("newBalance", 10000)
-//        val balanceText = findViewById<TextView>(R.id.balance)
-//        var referenceNo = intent.getIntExtra("newReference", 100)
-//
-//        // Change Balance Amount Text based on current balance
-//        val newBalanceText = "$balance PHP"
-//        balanceText.setText(newBalanceText)
-//
-//        // NumPad UI
-//        val buttonNum0 = findViewById<Button>(R.id.buttonNum0)
-//        val buttonNum1 = findViewById<Button>(R.id.buttonNum1)
-//        val buttonNum2 = findViewById<Button>(R.id.buttonNum2)
-//        val buttonNum3 = findViewById<Button>(R.id.buttonNum3)
-//        val buttonNum4 = findViewById<Button>(R.id.buttonNum4)
-//        val buttonNum5 = findViewById<Button>(R.id.buttonNum5)
-//        val buttonNum6 = findViewById<Button>(R.id.buttonNum6)
-//        val buttonNum7 = findViewById<Button>(R.id.buttonNum7)
-//        val buttonNum8 = findViewById<Button>(R.id.buttonNum8)
-//        val buttonNum9 = findViewById<Button>(R.id.buttonNum9)
-//
-//        // Make variables for fields
-//        val transferForm = findViewById<EditText>(R.id.editTextNumber)
-//        val accountForm = findViewById<EditText>(R.id.accountNo)
-//        val receiverForm = findViewById<EditText>(R.id.receiver)
-//        transferForm.setShowSoftInputOnFocus(false)
-//        transferForm.inputType = InputType.TYPE_NULL
-//
-//        // Set On Click Listeners for all number buttons
-//        buttonNum0.setOnClickListener { writeForm(0, transferForm) }
-//        buttonNum1.setOnClickListener { writeForm(1, transferForm) }
-//        buttonNum2.setOnClickListener { writeForm(2, transferForm) }
-//        buttonNum3.setOnClickListener { writeForm(3, transferForm) }
-//        buttonNum4.setOnClickListener { writeForm(4, transferForm) }
-//        buttonNum5.setOnClickListener { writeForm(5, transferForm) }
-//        buttonNum6.setOnClickListener { writeForm(6, transferForm) }
-//        buttonNum7.setOnClickListener { writeForm(7, transferForm) }
-//        buttonNum8.setOnClickListener { writeForm(8, transferForm) }
-//        buttonNum9.setOnClickListener { writeForm(9, transferForm) }
-//
-//        // Set On Click Listener for delete button
-//        deleteButton.setOnClickListener { reduceForm(transferForm) }
-//
-//        // Set On Click Listener for Submit Button
-//        submitButton.setOnClickListener {
-//
-//            // Make Alert Dialog
-//            val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-//
-//            // Checks if Fields are all complete
-//            if (accountForm.text.toString() == "") {
-//                Toast.makeText(
-//                    this,
-//                    "Please insert account number of receiver",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            } else if (receiverForm.text.toString() == "") {
-//                Toast.makeText(
-//                    this,
-//                    "Please insert a receiver",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            } else if (transferForm.text.toString() == "") {
-//                Toast.makeText(
-//                    this,
-//                    "Please insert amount first",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            } // If All Fields Are Complete, Show Alert Dialog
-//            else {
-//                builder
-//                    .setMessage(
-//                        "Reference No.: " + referenceNo +
-//                                "\nDate: " + SimpleDateFormat(
-//                            "yyyy-MM-dd HH:mm:ss",
-//                            Locale.getDefault()
-//                        ).format(
-//                            Calendar.getInstance().time
-//                        ) +
-//                                "\nAccount No.: " + accountForm.text.toString() +
-//                                "\nName: " + receiverForm.text.toString() +
-//                                "\nAmount: " + transferForm.text.toString() + " PHP"
-//                    )
-//
-//                    .setTitle("Confirm Details Before Continuing!")
-//                    .setPositiveButton("Continue") { _, _ ->
-//                        balance -= transferForm.text.toString().toInt()
-//                        val newBalanceString = "$balance PHP"
-//                        balanceText.setText(newBalanceString)
-//
-//                        Toast.makeText(
-//                            this,
-//                            "Your new balance is:$balance PHP",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                        referenceNo += 1
-//                        transferForm.setText("")
-//                        accountForm.setText("")
-//                        receiverForm.setText("")
-//                    }
-//                    .setNegativeButton("Cancel") { _, _ ->
-//                    }
-//                val dialog: AlertDialog = builder.create()
-//                dialog.show()
-//            }
-//        }
-//
-//        // Go Back to Dashboard
-//        backButton.setOnClickListener {
-//            val intent = Intent(this, Dashboard::class.java)
-//            intent.putExtra("newBalance", balance)
-//            intent.putExtra("newReference", referenceNo)
-//            startActivity(intent)
-//        }
+        val intent = Intent(this, Dashboard::class.java)
+
+        // Get user input
+        val userTransferAmount = findViewById<EditText>(R.id.transferAmount)
+
+        // Get values from previous activity
+        val balance = intent.getDoubleExtra("updatedBalance", 100000.0)
+
+        // Set balance display to current balance value
+        val balanceString = balance.toString()
+        val balanceDisplay = findViewById<TextView>(R.id.accountBalance)
+        balanceDisplay.text = balanceString
+
+        // Make variables for delete, submit and back to dashboard buttons
+        val submitButton = findViewById<TextView>(R.id.transferSubmit)
+        val backButton = findViewById<TextView>(R.id.transferCancel)
+
+        // Get quick transfer buttons
+        val transferButton1 = findViewById<TextView>(R.id.quickDeposit1)
+        val transferButton2 = findViewById<TextView>(R.id.quickDeposit2)
+        val transferButton3 = findViewById<TextView>(R.id.quickDeposit3)
+        val transferButton4 = findViewById<TextView>(R.id.quickDeposit4)
+        val transferButton5 = findViewById<TextView>(R.id.quickDeposit5)
+        val transferButton6 = findViewById<TextView>(R.id.quickDeposit6)
+
+        // Return to dashboard
+        backButton.setOnClickListener {
+            startActivity(Intent(this, Dashboard::class.java), null)
+        }
+
+        fun submit() {
+            val transferAmountSubmitted = userTransferAmount.text.toString()
+
+            // Check if transfer amount is not filled
+            if (transferAmountSubmitted == "") {
+                Toast.makeText(
+                    this, "Please insert amount first", Toast.LENGTH_SHORT
+                ).show()
+            }// Shows alert dialog once transfer amount is submitted
+            else {
+                // add transfered amount to balance
+                val newBalance = balance - transferAmountSubmitted.toDouble()
+                // generate random UUID
+                val referenceNo = UUID.randomUUID().mostSignificantBits.toString(36).substring(1)
+                // get current timestamp
+                val transactionTimestamp = LocalDateTime.now().format(
+                    DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a").withZone(ZoneOffset.UTC)
+                )
+
+                // send new balance value to Dashboard
+                intent.putExtra("transactionType", "TRANSFER")
+                intent.putExtra("transactionTimestamp", transactionTimestamp)
+                intent.putExtra("transactionReference", referenceNo)
+                intent.putExtra("initialBalance", balance)
+                intent.putExtra("updatedBalance", newBalance)
+                startActivity(intent)
+            }
+        }
+
+        transferButton1.setOnClickListener {
+            userTransferAmount.setText(getString(R.string.quickDeposit1))
+            submit()
+        }
+        transferButton2.setOnClickListener {
+            userTransferAmount.setText(getString(R.string.quickDeposit2))
+            submit()
+        }
+        transferButton3.setOnClickListener {
+            userTransferAmount.setText(getString(R.string.quickDeposit3))
+            submit()
+        }
+        transferButton4.setOnClickListener {
+            userTransferAmount.setText(getString(R.string.quickDeposit4))
+            submit()
+        }
+        transferButton5.setOnClickListener {
+            userTransferAmount.setText(getString(R.string.quickDeposit5))
+            submit()
+        }
+        transferButton6.setOnClickListener {
+            userTransferAmount.setText(getString(R.string.quickDeposit6))
+            submit()
+        }
+
+        // Set on click listener for submit button
+        submitButton.setOnClickListener { submit() }
+
+        // Set on click listener for back to dashboard button
+        backButton.setOnClickListener {
+            intent.putExtra("transactionType", "none")
+            intent.putExtra("transactionTimestamp", "")
+            intent.putExtra("transactionReference", "")
+            intent.putExtra("initialBalance", balance)
+            intent.putExtra("updatedBalance", balance)
+            startActivity(intent)
+        }
     }
 }

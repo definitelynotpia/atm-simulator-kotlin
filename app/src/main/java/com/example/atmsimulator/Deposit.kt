@@ -109,7 +109,7 @@ class Deposit : AppCompatActivity() {
 
         // Set on click listener for back to dashboard button
         backButton.setOnClickListener {
-            intent.putExtra("transactionType", "DEPOSIT")
+            intent.putExtra("transactionType", "none")
             intent.putExtra("transactionTimestamp", "")
             intent.putExtra("transactionReference", "")
             intent.putExtra("initialBalance", balance)

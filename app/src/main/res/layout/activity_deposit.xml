@@ -91,7 +91,7 @@
                     android:autofillHints="Deposit amount"
                     android:ems="10"
                     android:fontFamily="sans-serif-medium"
-                    android:hint="@string/depositAmountPlaceholder"
+                    android:hint="@string/transactionAmountPlaceholder"
                     android:inputType="numberDecimal"
                     android:textColor="@color/black"
                     android:textColorHint="#7F7F7F"
