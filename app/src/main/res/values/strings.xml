@@ -15,7 +15,7 @@
     <string name="pin8">8</string>
     <string name="pin9">9</string>
     <string name="pinPlaceholder">_</string>
-    <string name="appName">BankPro</string>
+    <string name="appName">PocketATM</string>
     <string name="blueWave">blue wave</string>
     <string name="appSlogan">The bank you can trust.</string>
     <string name="pinFingerprintHint">Login with Fingerprint</string>
@@ -35,10 +35,10 @@
     <string name="notificationsLabel">NOTIFICATIONS</string>
     <string name="moneyDepositLabel">DEPOSIT</string>
 
-    <string name="transactionCancel">Cancel</string>
-    <string name="transactionSubmit">Submit</string>
-
-    <!--DEPOSIT PAGE-->
+    <string name="notificationDescription">View your most recent transaction here.</string>
+    <string name="notificationNoContent">No transactions found for this account.</string>
+    
+    <!--TRANSACTIONS-->
     <string name="quickDepositLabel">QUICK DEPOSIT</string>
     <string name="quickWithdrawLabel">QUICK WITHDRAW</string>
     <string name="quickDeposit1">100.0</string>
@@ -48,6 +48,7 @@
     <string name="quickDeposit4">1000.0</string>
     <string name="quickDeposit6">5000.0</string>
     <string name="depositAmountPlaceholder">0.0</string>
-    <string name="notificationDescription">View your most recent transaction here.</string>
+    <string name="transactionCancel">Cancel</string>
+    <string name="transactionSubmit">Submit</string>
 
 </resources>

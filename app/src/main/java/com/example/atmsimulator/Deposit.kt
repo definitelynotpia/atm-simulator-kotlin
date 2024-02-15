@@ -1,28 +1,37 @@
 package com.example.atmsimulator
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import java.time.LocalDateTime
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
+import java.util.UUID
 
 class Deposit : AppCompatActivity() {
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_deposit)
+
+        val intent = Intent(this, Dashboard::class.java)
 
         // Get user input
         val userDepositAmount = findViewById<EditText>(R.id.depositAmount)
 
         // Get values from previous activity
-        var balance = intent.getDoubleExtra("updatedBalance", 100000.0)
+        val balance = intent.getDoubleExtra("updatedBalance", 100000.0)
+
+        // Set balance display to current balance value
         val balanceString = balance.toString()
         val balanceDisplay = findViewById<TextView>(R.id.accountBalance)
         balanceDisplay.text = balanceString
-        val referenceNo = intent.getIntExtra("newReference", 100)
 
         // Make variables for delete, submit and back to dashboard buttons
         val submitButton = findViewById<TextView>(R.id.depositSubmit)
@@ -47,19 +56,25 @@ class Deposit : AppCompatActivity() {
             // Check if deposit amount is not filled
             if (depositAmountSubmitted == "") {
                 Toast.makeText(
-                    this,
-                    "Please insert amount first",
-                    Toast.LENGTH_SHORT
+                    this, "Please insert amount first", Toast.LENGTH_SHORT
                 ).show()
             }// Shows alert dialog once deposit amount is submitted
             else {
                 // add deposited amount to balance
-                balance += depositAmountSubmitted.toDouble()
+                val newBalance = balance + depositAmountSubmitted.toDouble()
+                // generate random UUID
+                val referenceNo = UUID.randomUUID().mostSignificantBits.toString(36).substring(1)
+                // get current timestamp
+                val transactionTimestamp = LocalDateTime.now().format(
+                    DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a").withZone(ZoneOffset.UTC)
+                )
 
                 // send new balance value to Dashboard
-                val intent = Intent(this, Dashboard::class.java)
-                intent.putExtra("updatedBalance", balance)
-                intent.putExtra("newReference", referenceNo)
+                intent.putExtra("transactionType", "DEPOSIT")
+                intent.putExtra("transactionTimestamp", transactionTimestamp)
+                intent.putExtra("transactionReference", referenceNo)
+                intent.putExtra("initialBalance", balance)
+                intent.putExtra("updatedBalance", newBalance)
                 startActivity(intent)
             }
         }
@@ -94,9 +109,11 @@ class Deposit : AppCompatActivity() {
 
         // Set on click listener for back to dashboard button
         backButton.setOnClickListener {
-            val intent = Intent(this, Dashboard::class.java)
+            intent.putExtra("transactionType", "DEPOSIT")
+            intent.putExtra("transactionTimestamp", "")
+            intent.putExtra("transactionReference", "")
+            intent.putExtra("initialBalance", balance)
             intent.putExtra("updatedBalance", balance)
-            intent.putExtra("newReference", referenceNo)
             startActivity(intent)
         }
     }

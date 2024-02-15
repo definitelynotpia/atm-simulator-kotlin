@@ -16,7 +16,7 @@
         android:background="@color/lightBlue"
         android:columnCount="1"
         android:orientation="vertical"
-        android:paddingTop="25dp"
+        android:paddingTop="5dp"
         android:rowCount="3"
         tools:ignore="VisualLintBounds">
 
@@ -71,19 +71,17 @@
                     android:layout_marginEnd="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:paddingTop="5dp"
-                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="45sp"
                     app:drawableStartCompat="@drawable/pesos_big" />
             </GridLayout>
-
         </androidx.cardview.widget.CardView>
 
         <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="10dp"
             android:columnCount="3"
             android:orientation="vertical"
             android:rowCount="1">
@@ -95,7 +93,6 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="center_horizontal"
                 android:clickable="true"
-
                 android:focusable="true"
                 android:fontFamily="sans-serif-medium"
                 android:paddingEnd="50dp"
@@ -107,11 +104,10 @@
             <TextView
                 android:id="@+id/moneyTransfer"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_columnWeight="1"
                 android:layout_gravity="center_horizontal"
                 android:clickable="true"
-
                 android:focusable="true"
                 android:fontFamily="sans-serif-medium"
                 android:paddingEnd="50dp"
@@ -127,17 +123,13 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="center_horizontal"
                 android:clickable="true"
-
                 android:focusable="true"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/moneyWithdrawLabel"
                 android:textColor="@color/black"
                 app:drawableTopCompat="@drawable/withdraw_money_foreground"
                 tools:ignore="RtlSymmetry" />
-
         </GridLayout>
-
-
     </GridLayout>
 
     <ImageView
@@ -182,7 +174,6 @@
             android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:layout_marginTop="-10dp"
-            android:layout_marginBottom="-20dp"
             android:fontFamily="sans-serif-light"
             android:gravity="center"
             android:paddingBottom="15dp"
@@ -191,10 +182,12 @@
             android:textSize="14sp" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/notification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="30dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="15dp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="15dp"
             app:cardElevation="5dp">
@@ -202,20 +195,75 @@
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="1"
+                android:columnCount="2"
                 android:padding="15dp"
                 android:rowCount="2">
 
                 <TextView
-                    android:id="@+id/notificationLabel"
+                    android:id="@+id/transactionType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button_light"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_dark"
                     android:fontFamily="sans-serif-medium"
                     android:padding="10dp"
-                    android:text=""
                     android:textColor="@color/white"
                     android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/transactionTimestamp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:background="@drawable/button_light"
+                    android:fontFamily="sans-serif-light"
+                    android:padding="10dp"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/transactionUUID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnSpan="2"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="12sp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/initialBalanceLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Initial Balance:"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/initialBalanceAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:drawableStartCompat="@drawable/pesos_small" />
+
+                <TextView
+                    android:id="@+id/transactionAmountLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Transaction Amount:"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/transactionAmount"
@@ -224,15 +272,32 @@
                     android:layout_gravity="end"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="sans-serif-medium"
-                    android:paddingTop="5dp"
-                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:drawableStartCompat="@drawable/pesos_small" />
+
+                <TextView
+                    android:id="@+id/newBalanceAmountLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="New Balance:"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/newBalanceAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="sans-serif-medium"
                     android:textColor="@color/black"
                     android:textSize="25sp"
                     app:drawableStartCompat="@drawable/pesos_small" />
             </GridLayout>
-
         </androidx.cardview.widget.CardView>
-
     </LinearLayout>
-
 </GridLayout>
