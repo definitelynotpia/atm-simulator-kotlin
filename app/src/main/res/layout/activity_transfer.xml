@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,7 +9,8 @@
     android:orientation="vertical"
     tools:context=".Transfer">
 
-    <GridLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -17,6 +18,7 @@
         android:columnCount="1"
         android:orientation="vertical"
         android:rowCount="2"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="VisualLintBounds">
 
         <TextView
@@ -25,8 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="-15dp"
+            android:layout_marginTop="25dp"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
             android:text="@string/appName"
@@ -34,61 +35,71 @@
             android:textSize="30sp"
             android:textStyle="bold"
             app:drawableStartCompat="@drawable/app_icon_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="RtlSymmetry" />
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
+            android:id="@+id/transferCardView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="30dp"
             app:cardCornerRadius="15dp"
-            app:cardElevation="5dp">
+            app:cardElevation="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appLogo">
 
-            <TextView
-                android:id="@+id/transferLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_margin="20dp"
-                android:background="@drawable/button_dark"
-                android:fontFamily="sans-serif-medium"
-                android:padding="10dp"
-                android:text="@string/moneyTransferLabel"
-                android:textColor="@color/white"
-                android:textSize="12sp" />
-
-            <GridLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/accountBalanceDisplay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="40dp"
                 android:columnCount="2"
                 android:orientation="vertical"
                 android:padding="24dp"
                 android:rowCount="3">
 
                 <TextView
+                    android:id="@+id/transferLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:background="@drawable/button_dark"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="10dp"
+                    android:text="@string/moneyTransferLabel"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
                     android:id="@+id/accountBalance"
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_columnSpan="2"
                     android:layout_gravity="start"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginBottom="-20dp"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="sans-serif-medium"
                     android:text=""
                     android:textColor="@color/black"
                     android:textSize="40sp"
-                    app:drawableStartCompat="@drawable/pesos_big" />
+                    app:drawableStartCompat="@drawable/pesos_big"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/transferLabel" />
 
                 <EditText
                     android:id="@+id/transferAmount"
-                    android:layout_width="match_parent"
+                    android:layout_width="308dp"
                     android:layout_height="wrap_content"
-                    android:layout_columnSpan="2"
                     android:layout_gravity="start"
-                    android:autofillHints="Transfer amount"
+                    android:layout_marginTop="-20dp"
+                    android:autofillHints="Deposit amount"
                     android:ems="10"
                     android:fontFamily="sans-serif-medium"
                     android:hint="@string/transactionAmountPlaceholder"
@@ -96,7 +107,10 @@
                     android:textColor="@color/black"
                     android:textColorHint="#7F7F7F"
                     android:textSize="40sp"
-                    app:drawableStartCompat="@drawable/pesos_big" />
+                    app:drawableStartCompat="@drawable/pesos_big"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/accountBalance" />
 
                 <TextView
                     android:id="@+id/transferCancel"
@@ -104,12 +118,16 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     android:background="@drawable/button_light"
                     android:fontFamily="sans-serif-medium"
                     android:padding="10dp"
                     android:text="@string/transactionCancel"
                     android:textColor="@color/darkBlue"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/transferSubmit"
+                    app:layout_constraintTop_toBottomOf="@+id/transferAmount" />
 
                 <TextView
                     android:id="@+id/transferSubmit"
@@ -122,58 +140,70 @@
                     android:padding="10dp"
                     android:text="@string/transactionSubmit"
                     android:textColor="@color/darkBlue"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/transferAmount" />
 
-            </GridLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
 
-    </GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/blueWave"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="-38dp"
+        android:layout_marginTop="-34dp"
         android:contentDescription="@string/blueWave"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
         app:srcCompat="@drawable/light_wave_foreground" />
 
-    <GridLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="-15dp"
         android:columnCount="2"
         android:orientation="vertical"
         android:padding="10dp"
-        android:rowCount="4">
+        android:rowCount="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blueWave">
 
         <TextView
-            android:id="@+id/notificationBin"
+            android:id="@+id/transferOptions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnSpan="2"
             android:layout_gravity="center"
-            android:layout_marginBottom="-10dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
-            android:text="@string/quickDepositLabel"
+            android:text="@string/quickTransferLabel"
             android:textColor="@color/lightBlue"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="30dp"
+            android:layout_marginTop="20dp"
             android:clickable="true"
             android:focusable="true"
             app:cardCornerRadius="15dp"
-            app:cardElevation="5dp">
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/cardView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transferOptions">
 
-            <GridLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="2"
@@ -190,88 +220,31 @@
                     android:text="@string/quickDeposit1"
                     android:textColor="@color/black"
                     android:textSize="25sp"
-                    app:drawableStartCompat="@drawable/pesos_small" />
+                    app:drawableStartCompat="@drawable/pesos_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </GridLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="-15dp"
-            android:layout_marginBottom="15dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="5dp">
-
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:padding="15dp"
-                android:rowCount="1">
-
-                <TextView
-                    android:id="@+id/quickDeposit3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="center"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="@string/quickDeposit3"
-                    android:textColor="@color/black"
-                    android:textSize="25sp"
-                    app:drawableStartCompat="@drawable/pesos_small" />
-
-            </GridLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
             android:clickable="true"
             android:focusable="true"
             app:cardCornerRadius="15dp"
-            app:cardElevation="5dp">
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardView1"
+            app:layout_constraintTop_toBottomOf="@+id/transferOptions">
 
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:padding="15dp"
-                android:rowCount="1">
-
-                <TextView
-                    android:id="@+id/quickDeposit5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="center"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="@string/quickDeposit5"
-                    android:textColor="@color/black"
-                    android:textSize="25sp"
-                    app:drawableStartCompat="@drawable/pesos_small" />
-
-            </GridLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="5dp">
-
-            <GridLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="2"
@@ -288,24 +261,72 @@
                     android:text="@string/quickDeposit2"
                     android:textColor="@color/black"
                     android:textSize="25sp"
-                    app:drawableStartCompat="@drawable/pesos_small" />
+                    app:drawableStartCompat="@drawable/pesos_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </GridLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="-15dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:clickable="true"
             android:focusable="true"
             app:cardCornerRadius="15dp"
-            app:cardElevation="5dp">
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/cardView4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView1">
 
-            <GridLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:padding="15dp"
+                android:rowCount="1">
+
+                <TextView
+                    android:id="@+id/quickDeposit3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/quickDeposit3"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:drawableStartCompat="@drawable/pesos_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardView3"
+            app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="2"
@@ -322,23 +343,71 @@
                     android:text="@string/quickDeposit4"
                     android:textColor="@color/black"
                     android:textSize="25sp"
-                    app:drawableStartCompat="@drawable/pesos_small" />
+                    app:drawableStartCompat="@drawable/pesos_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </GridLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView5"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
             android:clickable="true"
             android:focusable="true"
             app:cardCornerRadius="15dp"
-            app:cardElevation="5dp">
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/cardView6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3">
 
-            <GridLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:padding="15dp"
+                android:rowCount="1">
+
+                <TextView
+                    android:id="@+id/quickDeposit5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/quickDeposit5"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:drawableStartCompat="@drawable/pesos_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView6"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardView5"
+            app:layout_constraintTop_toBottomOf="@+id/cardView4">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="2"
@@ -355,12 +424,16 @@
                     android:text="@string/quickDeposit6"
                     android:textColor="@color/black"
                     android:textSize="25sp"
-                    app:drawableStartCompat="@drawable/pesos_small" />
+                    app:drawableStartCompat="@drawable/pesos_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </GridLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
-    </GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</GridLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

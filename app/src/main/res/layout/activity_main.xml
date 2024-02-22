@@ -9,15 +9,13 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <GridLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="-14dp"
         android:background="@color/darkBlue"
         android:columnCount="1"
         android:orientation="vertical"
-        android:padding="15dp"
         android:rowCount="2"
         tools:ignore="VisualLintBounds">
 
@@ -34,6 +32,9 @@
             android:textColor="@color/white"
             android:textSize="50sp"
             app:drawableStartCompat="@drawable/app_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="RtlSymmetry" />
 
         <TextView
@@ -42,14 +43,17 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="95dp"
-            android:layout_marginTop="-38dp"
+            android:layout_marginTop="75dp"
             android:fontFamily="sans-serif-black"
             android:text="@string/appSlogan"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="@+id/appLogo"
+            app:layout_constraintStart_toStartOf="@+id/appLogo"
+            app:layout_constraintTop_toTopOf="@+id/appLogo" />
 
-    </GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/blueWave"
@@ -60,8 +64,8 @@
         android:contentDescription="@string/blueWave"
         app:srcCompat="@drawable/dark_wave_foreground" />
 
-    <GridLayout
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="50dp"
@@ -77,9 +81,12 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:gravity="center"
+            android:paddingHorizontal="15dp"
             android:text="@string/pinPlaceholder"
+            android:textColor="@color/black"
             android:textSize="50sp"
-            android:textColor="@color/black" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/pinDigit2"
@@ -87,8 +94,13 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:gravity="center"
+            android:paddingHorizontal="15dp"
             android:text="@string/pinPlaceholder"
-            android:textSize="50sp" android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toStartOf="@+id/pinDigit3"
+            app:layout_constraintStart_toEndOf="@+id/pinDigit1"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/pinDigit3"
@@ -96,8 +108,13 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:gravity="center"
+            android:paddingHorizontal="15dp"
             android:text="@string/pinPlaceholder"
-            android:textSize="50sp" android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toStartOf="@+id/pinDigit4"
+            app:layout_constraintStart_toEndOf="@+id/pinDigit2"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/pinDigit4"
@@ -105,12 +122,16 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:gravity="center"
+            android:paddingHorizontal="15dp"
             android:text="@string/pinPlaceholder"
-            android:textSize="50sp" android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <GridLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -125,6 +146,7 @@
             android:layout_height="70dp"
             android:layout_columnWeight="1"
             android:layout_gravity="end"
+            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:clickable="true"
             android:focusable="true"
@@ -132,7 +154,10 @@
             android:text="@string/pin1"
             android:textAlignment="center"
             android:textColor="#0000ff"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            app:layout_constraintEnd_toStartOf="@+id/pin2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/pin4"
@@ -140,7 +165,7 @@
             android:layout_height="70dp"
             android:layout_columnWeight="1"
             android:layout_gravity="end"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:clickable="true"
             android:focusable="true"
@@ -148,7 +173,10 @@
             android:text="@string/pin4"
             android:textAlignment="center"
             android:textColor="#0000ff"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            app:layout_constraintEnd_toStartOf="@+id/pin5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pin1" />
 
         <TextView
             android:id="@+id/pin7"
@@ -156,7 +184,7 @@
             android:layout_height="70dp"
             android:layout_columnWeight="1"
             android:layout_gravity="end"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:clickable="true"
             android:focusable="true"
@@ -164,7 +192,10 @@
             android:text="@string/pin7"
             android:textAlignment="center"
             android:textColor="#0000ff"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            app:layout_constraintEnd_toStartOf="@+id/pin8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pin4" />
 
         <TextView
             android:id="@+id/pinFingerprint"
@@ -172,13 +203,16 @@
             android:layout_height="70dp"
             android:layout_columnWeight="1"
             android:layout_gravity="end"
-            android:layout_marginTop="-14dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:clickable="true"
             android:contentDescription="@string/pinFingerprintHint"
             android:focusable="true"
             android:paddingStart="13dp"
             app:drawableStartCompat="@drawable/fingerprint_icon"
+            app:layout_constraintEnd_toStartOf="@+id/pin0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pin7"
             tools:ignore="RtlSymmetry" />
 
         <TextView
@@ -187,6 +221,7 @@
             android:layout_height="70dp"
             android:layout_columnWeight="1"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:clickable="true"
             android:focusable="true"
@@ -194,7 +229,10 @@
             android:text="@string/pin2"
             android:textAlignment="center"
             android:textColor="#0000ff"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            app:layout_constraintEnd_toStartOf="@+id/pin3"
+            app:layout_constraintStart_toEndOf="@+id/pin1"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/pin5"
@@ -202,7 +240,7 @@
             android:layout_height="70dp"
             android:layout_columnWeight="1"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:clickable="true"
             android:focusable="true"
@@ -210,7 +248,10 @@
             android:text="@string/pin5"
             android:textAlignment="center"
             android:textColor="#0000ff"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            app:layout_constraintEnd_toStartOf="@+id/pin6"
+            app:layout_constraintStart_toEndOf="@+id/pin4"
+            app:layout_constraintTop_toBottomOf="@+id/pin2" />
 
         <TextView
             android:id="@+id/pin8"
@@ -218,7 +259,7 @@
             android:layout_height="70dp"
             android:layout_columnWeight="1"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:clickable="true"
             android:focusable="true"
@@ -226,7 +267,10 @@
             android:text="@string/pin8"
             android:textAlignment="center"
             android:textColor="#0000ff"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            app:layout_constraintEnd_toStartOf="@+id/pin9"
+            app:layout_constraintStart_toEndOf="@+id/pin7"
+            app:layout_constraintTop_toBottomOf="@+id/pin5" />
 
         <TextView
             android:id="@+id/pin0"
@@ -234,7 +278,7 @@
             android:layout_height="70dp"
             android:layout_columnWeight="1"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:clickable="true"
             android:focusable="true"
@@ -242,7 +286,10 @@
             android:text="@string/pin0"
             android:textAlignment="center"
             android:textColor="#0000ff"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            app:layout_constraintEnd_toStartOf="@+id/pinDelete"
+            app:layout_constraintStart_toEndOf="@+id/pinFingerprint"
+            app:layout_constraintTop_toBottomOf="@+id/pin8" />
 
         <TextView
             android:id="@+id/pin3"
@@ -250,6 +297,7 @@
             android:layout_height="70dp"
             android:layout_columnWeight="1"
             android:layout_gravity="start"
+            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:clickable="true"
             android:focusable="true"
@@ -257,7 +305,10 @@
             android:text="@string/pin3"
             android:textAlignment="center"
             android:textColor="#0000ff"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pin2"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/pin6"
@@ -265,7 +316,7 @@
             android:layout_height="70dp"
             android:layout_columnWeight="1"
             android:layout_gravity="start"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:clickable="true"
             android:focusable="true"
@@ -273,7 +324,10 @@
             android:text="@string/pin6"
             android:textAlignment="center"
             android:textColor="#0000ff"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pin5"
+            app:layout_constraintTop_toBottomOf="@+id/pin3" />
 
         <TextView
             android:id="@+id/pin9"
@@ -281,7 +335,7 @@
             android:layout_height="70dp"
             android:layout_columnWeight="1"
             android:layout_gravity="start"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:clickable="true"
             android:focusable="true"
@@ -289,7 +343,10 @@
             android:text="@string/pin9"
             android:textAlignment="center"
             android:textColor="#0000ff"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pin8"
+            app:layout_constraintTop_toBottomOf="@+id/pin6" />
 
         <TextView
             android:id="@+id/pinDelete"
@@ -297,15 +354,18 @@
             android:layout_height="70dp"
             android:layout_columnWeight="1"
             android:layout_gravity="start"
-            android:layout_marginTop="-14dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/circle_button"
             android:clickable="true"
             android:contentDescription="@string/pinBackspaceHint"
             android:focusable="true"
             android:paddingStart="20dp"
             app:drawableStartCompat="@drawable/backspace_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pin0"
+            app:layout_constraintTop_toBottomOf="@+id/pin9"
             tools:ignore="RtlSymmetry" />
 
-    </GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </GridLayout>

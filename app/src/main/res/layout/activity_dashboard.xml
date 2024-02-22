@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,15 +9,17 @@
     android:orientation="vertical"
     tools:context=".Dashboard">
 
-    <GridLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@color/lightBlue"
         android:columnCount="1"
         android:orientation="vertical"
-        android:paddingTop="5dp"
         android:rowCount="3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="VisualLintBounds">
 
         <TextView
@@ -26,31 +28,35 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
-            android:paddingBottom="10dp"
+            android:paddingVertical="20dp"
             android:text="@string/appName"
             android:textColor="@color/darkBlue"
             android:textSize="30sp"
             android:textStyle="bold"
             app:drawableStartCompat="@drawable/app_icon_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="RtlSymmetry" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="30dp"
+            android:layout_marginHorizontal="40dp"
             app:cardCornerRadius="15dp"
-            app:cardElevation="5dp">
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appLogo">
 
-            <GridLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="1"
-                android:padding="15dp"
-                android:rowCount="2">
+                android:layout_height="match_parent"
+                android:padding="15dp">
 
                 <TextView
                     android:id="@+id/accountBalanceLabel"
@@ -61,30 +67,33 @@
                     android:padding="10dp"
                     android:text="@string/currentBalance"
                     android:textColor="@color/white"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/accountBalance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:layout_marginEnd="8dp"
                     android:fontFamily="sans-serif-medium"
-                    android:paddingTop="5dp"
                     android:textColor="@color/black"
                     android:textSize="45sp"
-                    app:drawableStartCompat="@drawable/pesos_big" />
-            </GridLayout>
+                    app:drawableStartCompat="@drawable/pesos_big"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/accountBalanceLabel" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
-        <GridLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="40dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="10dp"
-            android:columnCount="3"
             android:orientation="vertical"
-            android:rowCount="1">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView">
 
             <TextView
                 android:id="@+id/moneyDeposit"
@@ -95,10 +104,12 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:fontFamily="sans-serif-medium"
-                android:paddingEnd="50dp"
                 android:text="@string/moneyDepositLabel"
                 android:textColor="@color/black"
                 app:drawableTopCompat="@drawable/deposit_money_foreground"
+                app:layout_constraintEnd_toStartOf="@+id/moneyTransfer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/moneyTransfer"
                 tools:ignore="RtlSymmetry" />
 
             <TextView
@@ -110,10 +121,11 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:fontFamily="sans-serif-medium"
-                android:paddingEnd="50dp"
                 android:text="@string/moneyTransferLabel"
                 android:textColor="@color/black"
                 app:drawableTopCompat="@drawable/transfer_money_foreground"
+                app:layout_constraintEnd_toStartOf="@+id/moneyWithdraw"
+                app:layout_constraintStart_toEndOf="@+id/moneyDeposit"
                 tools:ignore="RtlSymmetry" />
 
             <TextView
@@ -128,26 +140,35 @@
                 android:text="@string/moneyWithdrawLabel"
                 android:textColor="@color/black"
                 app:drawableTopCompat="@drawable/withdraw_money_foreground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/moneyTransfer"
+                app:layout_constraintTop_toTopOf="@+id/moneyTransfer"
                 tools:ignore="RtlSymmetry" />
-        </GridLayout>
-    </GridLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/blueWave"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="-38dp"
+        android:layout_marginTop="-54dp"
         android:contentDescription="@string/blueWave"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
         app:srcCompat="@drawable/light_wave_foreground" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="-25dp"
         android:columnCount="1"
         android:orientation="vertical"
         android:rowCount="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blueWave"
         tools:ignore="VisualLintBounds">
 
         <TextView
@@ -156,7 +177,6 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="center"
-            android:layout_marginTop="18dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:paddingBottom="15dp"
@@ -165,6 +185,9 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:drawableStartCompat="@drawable/notifications"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="RtlSymmetry" />
 
         <TextView
@@ -173,13 +196,15 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="center"
-            android:layout_marginTop="-10dp"
             android:fontFamily="sans-serif-light"
             android:gravity="center"
             android:paddingBottom="15dp"
             android:text="@string/notificationDescription"
             android:textColor="@color/lightBlue"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notificationBin" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/notification"
@@ -190,9 +215,12 @@
             android:layout_marginVertical="15dp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="15dp"
-            app:cardElevation="5dp">
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notificationDescription">
 
-            <GridLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="2"
@@ -203,101 +231,114 @@
                     android:id="@+id/transactionType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
                     android:background="@drawable/button_dark"
                     android:fontFamily="sans-serif-medium"
                     android:padding="10dp"
                     android:textColor="@color/white"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/transactionTimestamp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
+                    android:layout_marginStart="10dp"
                     android:background="@drawable/button_light"
                     android:fontFamily="sans-serif-light"
                     android:padding="10dp"
                     android:textColor="@color/darkBlue"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/transactionType"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/transactionUUID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_columnSpan="2"
-                    android:layout_marginTop="5dp"
                     android:fontFamily="sans-serif-medium"
                     android:textColor="@color/darkBlue"
                     android:textSize="12sp"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/transactionType" />
 
                 <TextView
                     android:id="@+id/initialBalanceLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginVertical="5dp"
                     android:fontFamily="sans-serif-light"
                     android:text="Initial Balance:"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/transactionUUID" />
 
                 <TextView
                     android:id="@+id/initialBalanceAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:layout_marginEnd="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:textColor="@color/black"
                     android:textSize="25sp"
-                    app:drawableStartCompat="@drawable/pesos_small" />
+                    app:drawableStartCompat="@drawable/pesos_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/transactionUUID" />
 
                 <TextView
                     android:id="@+id/transactionAmountLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginVertical="5dp"
                     android:fontFamily="sans-serif-light"
                     android:text="Transaction Amount:"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/initialBalanceLabel" />
 
                 <TextView
                     android:id="@+id/transactionAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:layout_marginEnd="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:textColor="@color/black"
                     android:textSize="25sp"
-                    app:drawableStartCompat="@drawable/pesos_small" />
+                    app:drawableStartCompat="@drawable/pesos_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/initialBalanceLabel" />
 
                 <TextView
                     android:id="@+id/newBalanceAmountLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginVertical="5dp"
                     android:fontFamily="sans-serif-light"
                     android:text="New Balance:"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/transactionAmountLabel" />
 
                 <TextView
                     android:id="@+id/newBalanceAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:textColor="@color/black"
-                    android:textSize="25sp"
-                    app:drawableStartCompat="@drawable/pesos_small" />
-            </GridLayout>
+                    android:textSize="20sp"
+                    app:drawableStartCompat="@drawable/pesos_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/transactionAmountLabel" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
-    </LinearLayout>
-</GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
