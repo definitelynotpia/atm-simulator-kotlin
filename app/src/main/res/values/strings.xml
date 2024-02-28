@@ -51,5 +51,9 @@
     <string name="transactionAmountPlaceholder">0.0</string>
     <string name="transactionCancel">Cancel</string>
     <string name="transactionSubmit">Submit</string>
+    <string name="receiptInitialBalance">Initial Balance:</string>
+    <string name="receiptTransactionAmount">Transaction Amount:</string>
+    <string name="transactionNewBalance">New Balance:</string>
+    <string name="register">Register</string>
 
 </resources>

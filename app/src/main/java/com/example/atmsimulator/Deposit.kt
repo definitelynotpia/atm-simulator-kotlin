@@ -73,6 +73,7 @@ class Deposit : AppCompatActivity() {
                 intent.putExtra("transactionTimestamp", transactionTimestamp)
                 intent.putExtra("transactionReference", referenceNo)
                 intent.putExtra("initialBalance", balance)
+                intent.putExtra("transactionAmount", userDepositAmount.text.toString())
                 intent.putExtra("updatedBalance", newBalance)
                 startActivity(intent)
             }

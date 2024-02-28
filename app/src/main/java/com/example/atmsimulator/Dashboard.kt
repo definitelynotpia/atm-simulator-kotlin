@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 
+
 class Dashboard : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
@@ -20,6 +22,7 @@ class Dashboard : AppCompatActivity() {
         val balanceString = balance.toString()
         val transactionTimestamp = intent.getStringExtra("transactionTimestamp")
         val transactionType = intent.getStringExtra("transactionType")
+        val depositAmount = intent.getStringExtra("transactionAmount")
         val referenceNo = intent.getStringExtra("transactionReference")
         val transactionUUID = "Reference No. $referenceNo"
 
@@ -49,7 +52,7 @@ class Dashboard : AppCompatActivity() {
             transactionUUIDLabel.text = transactionUUID
             // transaction info
             initialBalanceAmount.text = initialBalance.toString()
-            transactionAmount.text = (balance - initialBalance).toString()
+            transactionAmount.text = depositAmount.toString()
             newBalanceAmount.text = balanceString
         } else {
             // hide notification card
