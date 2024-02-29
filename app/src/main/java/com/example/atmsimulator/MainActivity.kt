@@ -1,11 +1,14 @@
 package com.example.atmsimulator
 
+// firebase
 import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
@@ -14,12 +17,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val firebase: DatabaseReference = FirebaseDatabase.getInstance().getReference()
+
         // Tries
         var tries = 4
 
         // Valid pins
-            val validPin1 = "1234"
-            val validPin2 = "5678"
+        val validPin1 = "1234"
+        val validPin2 = "5678"
+
+        val registerButton = findViewById<TextView>(R.id.registerButton)
 
         val pinDigit1 = findViewById<TextView>(R.id.pinDigit1)
         val pinDigit2 = findViewById<TextView>(R.id.pinDigit2)
@@ -139,5 +146,10 @@ class MainActivity : AppCompatActivity() {
 
         // Set On Click Listener for Delete button
         buttonPinDelete.setOnClickListener { deletePin(0) }
+
+        // register new bank account
+        registerButton.setOnClickListener {
+            startActivity(Intent(this, Register::class.java))
+        }
     }
 }

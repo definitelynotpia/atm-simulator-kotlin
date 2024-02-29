@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">atm-simulator</string>
 
     <string name="pin_submit">Submit</string>
@@ -17,7 +17,7 @@
     <string name="pinPlaceholder">_</string>
     <string name="appName">PocketATM</string>
     <string name="blueWave">blue wave</string>
-    <string name="appSlogan">The bank you can trust.</string>
+    <string name="appSlogan">Keep payments in your pockets.</string>
     <string name="pinFingerprintHint">Login with Fingerprint</string>
     <string name="pinBackspaceHint">Backspace</string>
 
@@ -49,11 +49,20 @@
     <string name="quickDeposit4">1000.0</string>
     <string name="quickDeposit6">5000.0</string>
     <string name="transactionAmountPlaceholder">0.0</string>
-    <string name="transactionCancel">Cancel</string>
-    <string name="transactionSubmit">Submit</string>
+    <string name="transactionCancel" tools:ignore="ButtonCase">CANCEL</string>
+    <string name="transactionSubmit">SUBMIT</string>
     <string name="receiptInitialBalance">Initial Balance:</string>
     <string name="receiptTransactionAmount">Transaction Amount:</string>
     <string name="transactionNewBalance">New Balance:</string>
-    <string name="register">Register</string>
+    <string name="REGISTER">REGISTER</string>
+    <string name="email_address">Email address</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="register_note">This project was developed in fulfillment of the\nfinal requirements for CS320 (Advanced\nAndroid App Development) subject. Any data\nyou give us will be erased from our database\nafter conclusion of Term 2, S.Y. 2023–2024.</string>
+    <string name="next">NEXT</string>
+    <string name="don_t_have_an_account_yet_register_below">Don\'t have an account yet? Register below!</string>
+    <string name="pin_note">Enter your PIN code. Make sure you can remember it before confirming!</string>
+    <string name="phone_number">Phone number</string>
+    <string name="pinConfirm">CONFIRM</string>
 
 </resources>

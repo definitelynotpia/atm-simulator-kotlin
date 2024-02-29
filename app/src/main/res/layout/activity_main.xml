@@ -33,7 +33,7 @@
             android:gravity="center"
             android:paddingBottom="15dp"
             android:text="@string/appName"
-            android:textColor="@color/white"
+            android:textColor="@color/lightBlue"
             android:textSize="50sp"
             app:drawableStartCompat="@drawable/app_icon"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,11 +46,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="95dp"
-            android:layout_marginTop="75dp"
+            android:layout_marginStart="82dp"
+            android:layout_marginTop="60dp"
             android:fontFamily="sans-serif-black"
             android:text="@string/appSlogan"
-            android:textColor="@color/white"
+            android:textColor="@color/lightBlue"
             android:textSize="18sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="@+id/appLogo"
@@ -63,7 +63,7 @@
         android:id="@+id/blueWave"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="-34dp"
+        android:layout_marginTop="-44dp"
         android:contentDescription="@string/blueWave"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,18 +72,22 @@
         app:srcCompat="@drawable/dark_wave_foreground" />
 
     <TextView
-        android:id="@+id/depositCancel"
-        android:layout_width="wrap_content"
+        android:id="@+id/registerButton"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:background="@drawable/button_light"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_dark"
         android:fontFamily="sans-serif-medium"
-        android:padding="10dp"
-        android:text="@string/register"
-        android:textColor="@color/darkBlue"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="@string/REGISTER"
+        android:textColor="@color/lightBlue"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
@@ -91,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="24dp"
+        android:paddingBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -159,9 +163,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
 
@@ -392,5 +397,33 @@
             tools:ignore="RtlSymmetry" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:cardBackgroundColor="@color/yellow"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/don_t_have_an_account_yet_register_below"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            tools:ignore="RtlSymmetry" />
+
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
