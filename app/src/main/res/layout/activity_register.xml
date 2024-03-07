@@ -7,7 +7,7 @@
     android:background="@color/lightBlue"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Deposit">
+    tools:context=".Register">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
@@ -15,14 +15,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@color/darkBlue"
-        android:columnCount="1"
         android:orientation="vertical"
-        android:rowCount="2"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="VisualLintBounds">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/depositCardView"
+            android:id="@+id/registerCardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -44,7 +42,7 @@
                 android:padding="24dp">
 
                 <TextView
-                    android:id="@+id/depositLabel"
+                    android:id="@+id/registerLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
@@ -63,7 +61,7 @@
                     android:layout_height="48dp"
                     android:layout_gravity="start"
                     android:layout_marginTop="15dp"
-                    android:autofillHints="Deposit amount"
+                    android:autofillHints="register amount"
                     android:background="@drawable/edittext_pill"
                     android:ems="10"
                     android:fontFamily="sans-serif-medium"
@@ -75,14 +73,14 @@
                     android:textSize="20sp"
                     app:layout_constraintEnd_toStartOf="@+id/lastname"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/depositLabel" />
+                    app:layout_constraintTop_toBottomOf="@+id/registerLabel" />
 
                 <EditText
                     android:id="@+id/lastname"
                     android:layout_width="150dp"
                     android:layout_height="48dp"
                     android:layout_gravity="start"
-                    android:autofillHints="Deposit amount"
+                    android:autofillHints="register amount"
                     android:background="@drawable/edittext_pill"
                     android:ems="10"
                     android:fontFamily="sans-serif-medium"
@@ -102,7 +100,7 @@
                     android:layout_height="48dp"
                     android:layout_gravity="start"
                     android:layout_marginTop="10dp"
-                    android:autofillHints="Deposit amount"
+                    android:autofillHints="register amount"
                     android:background="@drawable/edittext_pill"
                     android:ems="10"
                     android:fontFamily="sans-serif-medium"
@@ -123,7 +121,7 @@
                     android:layout_height="48dp"
                     android:layout_gravity="start"
                     android:layout_marginTop="10dp"
-                    android:autofillHints="Deposit amount"
+                    android:autofillHints="register amount"
                     android:background="@drawable/edittext_pill"
                     android:ems="10"
                     android:fontFamily="sans-serif-medium"
@@ -139,7 +137,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/emailAddress" />
 
                 <TextView
-                    android:id="@+id/depositCancel"
+                    android:id="@+id/registerCancel"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
@@ -149,15 +147,17 @@
                     android:fontFamily="sans-serif-medium"
                     android:gravity="center"
                     android:padding="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:text="@string/transactionCancel"
                     android:textColor="@color/darkBlue"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/depositSubmit"
+                    app:layout_constraintEnd_toStartOf="@+id/registerSubmit"
                     app:layout_constraintTop_toBottomOf="@+id/info" />
 
                 <TextView
-                    android:id="@+id/depositSubmit"
+                    android:id="@+id/registerSubmit"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -167,6 +167,8 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="@string/next"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:textColor="@color/darkBlue"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"

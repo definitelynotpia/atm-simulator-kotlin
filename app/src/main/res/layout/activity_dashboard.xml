@@ -15,9 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@color/lightBlue"
-        android:columnCount="1"
         android:orientation="vertical"
-        android:rowCount="3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="VisualLintBounds">
@@ -26,7 +24,6 @@
             android:id="@+id/appLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
@@ -89,9 +86,9 @@
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingVertical="40dp"
             android:layout_gravity="center_horizontal"
             android:orientation="vertical"
+            android:paddingVertical="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView">
 
@@ -99,7 +96,6 @@
                 android:id="@+id/moneyDeposit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_gravity="center_horizontal"
                 android:clickable="true"
                 android:focusable="true"
@@ -116,7 +112,6 @@
                 android:id="@+id/moneyTransfer"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_columnWeight="1"
                 android:layout_gravity="center_horizontal"
                 android:clickable="true"
                 android:focusable="true"
@@ -132,7 +127,6 @@
                 android:id="@+id/moneyWithdraw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_gravity="center_horizontal"
                 android:clickable="true"
                 android:focusable="true"
@@ -163,9 +157,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:columnCount="1"
         android:orientation="vertical"
-        android:rowCount="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/blueWave"
@@ -175,7 +167,6 @@
             android:id="@+id/notificationBin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
@@ -194,7 +185,6 @@
             android:id="@+id/notificationDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-light"
             android:gravity="center"
@@ -223,9 +213,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:padding="15dp"
-                android:rowCount="2">
+                android:padding="15dp">
 
                 <TextView
                     android:id="@+id/transactionType"
@@ -257,7 +245,6 @@
                     android:id="@+id/transactionUUID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_columnSpan="2"
                     android:fontFamily="sans-serif-medium"
                     android:textColor="@color/darkBlue"
                     android:textSize="12sp"

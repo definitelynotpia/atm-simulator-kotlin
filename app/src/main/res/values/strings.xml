@@ -64,5 +64,8 @@
     <string name="pin_note">Enter your PIN code. Make sure you can remember it before confirming!</string>
     <string name="phone_number">Phone number</string>
     <string name="pinConfirm">CONFIRM</string>
+    <string name="hero_image">hero image</string>
+    <string name="developer">Frances Pia Alexy Rey © 2024</string>
+    <string name="login">LOGIN</string>
 
 </resources>

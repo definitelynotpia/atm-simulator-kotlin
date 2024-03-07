@@ -15,9 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@color/lightBlue"
-        android:columnCount="1"
         android:orientation="vertical"
-        android:rowCount="2"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="VisualLintBounds">
 
@@ -25,7 +23,6 @@
             android:id="@+id/appLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
             android:fontFamily="sans-serif-black"
@@ -58,10 +55,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:columnCount="2"
                 android:orientation="vertical"
-                android:padding="24dp"
-                android:rowCount="3">
+                android:padding="24dp">
 
                 <TextView
                     android:id="@+id/depositLabel"
@@ -81,7 +76,6 @@
                     android:id="@+id/accountBalance"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_columnSpan="2"
                     android:layout_gravity="start"
                     android:layout_marginTop="10dp"
                     android:fontFamily="sans-serif-medium"
@@ -168,10 +162,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:columnCount="2"
         android:orientation="vertical"
         android:padding="10dp"
-        android:rowCount="4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/blueWave">
 
@@ -206,15 +198,12 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:padding="15dp"
-                android:rowCount="1">
+                android:padding="15dp">
 
                 <TextView
                     android:id="@+id/quickDeposit1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
                     android:layout_gravity="center"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/quickDeposit1"
@@ -247,15 +236,12 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:padding="15dp"
-                android:rowCount="1">
+                android:padding="15dp">
 
                 <TextView
                     android:id="@+id/quickDeposit2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
                     android:layout_gravity="center"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/quickDeposit2"
@@ -288,15 +274,12 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:padding="15dp"
-                android:rowCount="1">
+                android:padding="15dp">
 
                 <TextView
                     android:id="@+id/quickDeposit3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
                     android:layout_gravity="center"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/quickDeposit3"
@@ -329,15 +312,12 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:padding="15dp"
-                android:rowCount="1">
+                android:padding="15dp">
 
                 <TextView
                     android:id="@+id/quickDeposit4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
                     android:layout_gravity="center"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/quickDeposit4"
@@ -370,15 +350,12 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:padding="15dp"
-                android:rowCount="1">
+                android:padding="15dp">
 
                 <TextView
                     android:id="@+id/quickDeposit5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
                     android:layout_gravity="center"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/quickDeposit5"
@@ -410,15 +387,12 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:padding="15dp"
-                android:rowCount="1">
+                android:padding="15dp">
 
                 <TextView
                     android:id="@+id/quickDeposit6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
                     android:layout_gravity="center"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/quickDeposit6"

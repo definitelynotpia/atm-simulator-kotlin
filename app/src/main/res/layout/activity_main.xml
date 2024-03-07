@@ -15,9 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@color/darkBlue"
-        android:columnCount="1"
         android:orientation="vertical"
-        android:rowCount="2"
+        android:paddingVertical="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,7 +26,6 @@
             android:id="@+id/appLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
@@ -57,13 +55,72 @@
             app:layout_constraintStart_toStartOf="@+id/appLogo"
             app:layout_constraintTop_toTopOf="@+id/appLogo" />
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            app:cardBackgroundColor="@color/yellow"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appLogo">
+
+            <ImageView
+                android:id="@+id/heroImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/hero_image"
+                android:padding="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appLogo"
+                app:srcCompat="@drawable/finance_foreground" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/loginButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/button_light"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/login"
+            android:textColor="@color/darkBlue"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/registerButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/info" />
+
+        <TextView
+            android:id="@+id/registerButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_light"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/REGISTER"
+            android:textColor="@color/darkBlue"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/loginButton"
+            app:layout_constraintTop_toTopOf="@+id/loginButton" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/blueWave"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="-44dp"
+        android:layout_marginTop="-40dp"
         android:contentDescription="@string/blueWave"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,344 +128,18 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
         app:srcCompat="@drawable/dark_wave_foreground" />
 
-    <TextView
-        android:id="@+id/registerButton"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/button_dark"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:padding="15dp"
-        android:text="@string/REGISTER"
-        android:textColor="@color/lightBlue"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/blueWave">
-
-        <TextView
-            android:id="@+id/pinDigit1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center"
-            android:paddingHorizontal="15dp"
-            android:text="@string/pinPlaceholder"
-            android:textColor="@color/black"
-            android:textSize="50sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/pinDigit2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center"
-            android:paddingHorizontal="15dp"
-            android:text="@string/pinPlaceholder"
-            android:textColor="@color/black"
-            android:textSize="50sp"
-            app:layout_constraintEnd_toStartOf="@+id/pinDigit3"
-            app:layout_constraintStart_toEndOf="@+id/pinDigit1"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/pinDigit3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center"
-            android:paddingHorizontal="15dp"
-            android:text="@string/pinPlaceholder"
-            android:textColor="@color/black"
-            android:textSize="50sp"
-            app:layout_constraintEnd_toStartOf="@+id/pinDigit4"
-            app:layout_constraintStart_toEndOf="@+id/pinDigit2"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/pinDigit4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center"
-            android:paddingHorizontal="15dp"
-            android:text="@string/pinPlaceholder"
-            android:textColor="@color/black"
-            android:textSize="50sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical"
-        android:paddingHorizontal="24dp"
-        android:paddingVertical="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
-
-        <TextView
-            android:id="@+id/pin1"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="end"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/circle_button"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/pin1"
-            android:textAlignment="center"
-            android:textColor="#0000ff"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toStartOf="@+id/pin2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/pin4"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="end"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/circle_button"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/pin4"
-            android:textAlignment="center"
-            android:textColor="#0000ff"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toStartOf="@+id/pin5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pin1" />
-
-        <TextView
-            android:id="@+id/pin7"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="end"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/circle_button"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/pin7"
-            android:textAlignment="center"
-            android:textColor="#0000ff"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toStartOf="@+id/pin8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pin4" />
-
-        <TextView
-            android:id="@+id/pinFingerprint"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="end"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/circle_button"
-            android:clickable="true"
-            android:contentDescription="@string/pinFingerprintHint"
-            android:focusable="true"
-            android:paddingStart="13dp"
-            app:drawableStartCompat="@drawable/fingerprint_icon"
-            app:layout_constraintEnd_toStartOf="@+id/pin0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pin7"
-            tools:ignore="RtlSymmetry" />
-
-        <TextView
-            android:id="@+id/pin2"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/circle_button"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/pin2"
-            android:textAlignment="center"
-            android:textColor="#0000ff"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toStartOf="@+id/pin3"
-            app:layout_constraintStart_toEndOf="@+id/pin1"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/pin5"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/circle_button"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/pin5"
-            android:textAlignment="center"
-            android:textColor="#0000ff"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toStartOf="@+id/pin6"
-            app:layout_constraintStart_toEndOf="@+id/pin4"
-            app:layout_constraintTop_toBottomOf="@+id/pin2" />
-
-        <TextView
-            android:id="@+id/pin8"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/circle_button"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/pin8"
-            android:textAlignment="center"
-            android:textColor="#0000ff"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toStartOf="@+id/pin9"
-            app:layout_constraintStart_toEndOf="@+id/pin7"
-            app:layout_constraintTop_toBottomOf="@+id/pin5" />
-
-        <TextView
-            android:id="@+id/pin0"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/circle_button"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/pin0"
-            android:textAlignment="center"
-            android:textColor="#0000ff"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toStartOf="@+id/pinDelete"
-            app:layout_constraintStart_toEndOf="@+id/pinFingerprint"
-            app:layout_constraintTop_toBottomOf="@+id/pin8" />
-
-        <TextView
-            android:id="@+id/pin3"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="start"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/circle_button"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/pin3"
-            android:textAlignment="center"
-            android:textColor="#0000ff"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/pin2"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/pin6"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="start"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/circle_button"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/pin6"
-            android:textAlignment="center"
-            android:textColor="#0000ff"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/pin5"
-            app:layout_constraintTop_toBottomOf="@+id/pin3" />
-
-        <TextView
-            android:id="@+id/pin9"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="start"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/circle_button"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/pin9"
-            android:textAlignment="center"
-            android:textColor="#0000ff"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/pin8"
-            app:layout_constraintTop_toBottomOf="@+id/pin6" />
-
-        <TextView
-            android:id="@+id/pinDelete"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="start"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/circle_button"
-            android:clickable="true"
-            android:contentDescription="@string/pinBackspaceHint"
-            android:focusable="true"
-            android:paddingStart="20dp"
-            app:drawableStartCompat="@drawable/backspace_icon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/pin0"
-            app:layout_constraintTop_toBottomOf="@+id/pin9"
-            tools:ignore="RtlSymmetry" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <androidx.cardview.widget.CardView
-        android:id="@+id/info"
+        android:id="@+id/developer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-14dp"
         app:cardBackgroundColor="@color/yellow"
         app:cardCornerRadius="15dp"
         app:cardElevation="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+        app:layout_constraintTop_toBottomOf="@+id/blueWave">
 
         <TextView
             android:layout_width="wrap_content"
@@ -416,14 +147,14 @@
             android:layout_gravity="center"
             android:fontFamily="sans-serif"
             android:gravity="center"
-            android:padding="10dp"
-            android:text="@string/don_t_have_an_account_yet_register_below"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:text="@string/developer"
             android:textColor="@color/gray"
-            android:textSize="18sp"
-            android:textStyle="italic"
+            android:textSize="14sp"
+            android:textStyle="bold"
             tools:ignore="RtlSymmetry" />
 
     </androidx.cardview.widget.CardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
