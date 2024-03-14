@@ -5,32 +5,22 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 
 class Register : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-
-        val db = Firebase.database("https://android-kotlin-backend-default-rtdb.asia-southeast1.firebasedatabase.app")
-        val dbRef = db.getReference("Users")
-
-//        dbRef = FirebaseDatabase
-//            .getInstance("https://android-kotlin-backend-default-rtdb.asia-southeast1.firebasedatabase.app")
-//            .getReference("Users")
-//        dbRef = Firebase
-//            .database("https://android-kotlin-backend-default-rtdb.asia-southeast1.firebasedatabase.app")
-//            .reference
-
+        // edittext data
         val firstname = findViewById<android.widget.EditText>(R.id.firstname)
         val lastname = findViewById<android.widget.EditText>(R.id.lastname)
         val emailAddress = findViewById<android.widget.EditText>(R.id.emailAddress)
         val phoneNumber = findViewById<android.widget.EditText>(R.id.phoneNumber)
-
+        // buttons
         val registerSubmit = findViewById<TextView>(R.id.registerSubmit)
         val registerCancel = findViewById<TextView>(R.id.registerCancel)
+
+        val intent = Intent(this, RegisterPin::class.java)
 
         // insert data to Firebase database
         registerSubmit.setOnClickListener {
@@ -43,31 +33,14 @@ class Register : AppCompatActivity() {
             // make sure all fields have values
             if (firstnameValue.isEmpty() || lastnameValue.isEmpty() || emailAddressValue.isEmpty() || phoneNumberValue.isEmpty()) {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            } else {
+                intent.putExtra("firstnameValue", firstnameValue)
+                intent.putExtra("lastnameValue", lastnameValue)
+                intent.putExtra("emailAddressValue", emailAddressValue)
+                intent.putExtra("phoneNumberValue", phoneNumberValue)
+                Toast.makeText(this, "Proceeding to next step.", Toast.LENGTH_SHORT).show()
+                startActivity(intent)
             }
-
-            // generate primary key
-            val userId = dbRef.push().key!!
-            // create new User object
-            val user = User(
-                userId,
-                firstnameValue,
-                lastnameValue,
-                emailAddressValue,
-                phoneNumberValue,
-                "",
-                0.0
-            )
-
-            Toast.makeText(this, "$user", Toast.LENGTH_SHORT).show()
-
-            // insert user object into database with key=userId
-            dbRef.child("Users").child(userId).setValue("test")
-                .addOnCompleteListener {
-                    Toast.makeText(this, "User added successfully", Toast.LENGTH_SHORT).show()
-                }
-                .addOnFailureListener { err ->
-                    Toast.makeText(this, "Error: ${err.message}", Toast.LENGTH_SHORT).show()
-                }
         }
 
         // return to home page

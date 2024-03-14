@@ -67,5 +67,6 @@
     <string name="hero_image">hero image</string>
     <string name="developer">Frances Pia Alexy Rey © 2024</string>
     <string name="login">LOGIN</string>
+    <string name="registerCancelHint">Cancel registration</string>
 
 </resources>

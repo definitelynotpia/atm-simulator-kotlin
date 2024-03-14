@@ -1,6 +1,9 @@
-package com.example.atmsimulator
+package com.example.atmsimulator.data
 
-data class Transactions(
+import androidx.room.Entity
+
+@Entity(tableName = "transactions")
+data class Transaction(
     val id: String, // referenceNo
     val userId: User, // references User data class
     val type: String,

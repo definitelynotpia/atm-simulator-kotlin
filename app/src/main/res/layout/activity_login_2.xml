@@ -7,7 +7,7 @@
     android:background="@color/lightBlue"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Login2">
+    tools:context=".LoginPin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"

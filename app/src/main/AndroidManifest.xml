@@ -16,7 +16,13 @@
             android:name=".Login"
             android:exported="false" />
         <activity
+            android:name=".LoginPin"
+            android:exported="false" />
+        <activity
             android:name=".Register"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterPin"
             android:exported="false" />
         <activity
             android:name=".Transfer"

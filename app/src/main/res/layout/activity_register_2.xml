@@ -7,7 +7,7 @@
     android:background="@color/lightBlue"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Register2">
+    tools:context=".RegisterPin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
@@ -49,7 +49,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/depositCardView"
+            android:id="@+id/registerCardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -132,7 +132,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/depositCardView">
+            app:layout_constraintTop_toBottomOf="@+id/registerCardView">
 
             <TextView
                 android:id="@+id/pin1"
@@ -189,14 +189,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/pin4" />
 
             <TextView
-                android:id="@+id/pinFingerprint"
+                android:id="@+id/registerCancel"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="end"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/circle_button"
                 android:clickable="true"
-                android:contentDescription="@string/pinFingerprintHint"
+                android:contentDescription="@string/registerCancelHint"
                 android:focusable="true"
                 android:paddingStart="19.5dp"
                 app:drawableStartCompat="@drawable/cancel"
@@ -274,7 +274,7 @@
                 android:textColor="#0000ff"
                 android:textSize="35sp"
                 app:layout_constraintEnd_toStartOf="@+id/pinDelete"
-                app:layout_constraintStart_toEndOf="@+id/pinFingerprint"
+                app:layout_constraintStart_toEndOf="@+id/registerCancel"
                 app:layout_constraintTop_toBottomOf="@+id/pin8" />
 
             <TextView
@@ -351,21 +351,22 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/depositSubmit"
+            android:id="@+id/registerSubmit"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="36dp"
             android:background="@drawable/button_light"
+            android:clickable="true"
+            android:focusable="true"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/pinConfirm"
-            android:clickable="true"
-            android:focusable="true"
             android:textColor="@color/darkBlue"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
 
