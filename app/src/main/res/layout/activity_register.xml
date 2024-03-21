@@ -126,7 +126,7 @@
                     android:ems="10"
                     android:fontFamily="sans-serif-medium"
                     android:hint="@string/phone_number"
-                    android:inputType="phone"
+                    android:inputType="text|phone"
                     android:padding="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="#7F7F7F"

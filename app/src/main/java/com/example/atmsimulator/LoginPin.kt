@@ -16,9 +16,10 @@ class LoginPin : AppCompatActivity() {
         // Tries
         var tries = 4
 
-        // Valid pins
-        val validPin1 = "1234"
-        val validPin2 = "5678"
+        // get user pin
+        val userId = intent.getIntExtra("currentUser", 0)
+        val userPin = intent.getStringExtra("pin$userId").toString()
+        val userUpdatedBalance = intent.getDoubleExtra("updatedBalance$userId", 0.0)
 
         val pinDigit1 = findViewById<TextView>(R.id.pinDigit1)
         val pinDigit2 = findViewById<TextView>(R.id.pinDigit2)
@@ -80,7 +81,6 @@ class LoginPin : AppCompatActivity() {
                 val newPin =
                     pinDigit1.text.toString() + pinDigit2.text.toString() + pinDigit3.text.toString() + pinDigit4.text.toString()
 
-//                Toast.makeText(this, newPin, Toast.LENGTH_SHORT).show()
 
                 // Make Alert Dialog
                 val builder: AlertDialog.Builder = AlertDialog.Builder(this)
@@ -93,17 +93,15 @@ class LoginPin : AppCompatActivity() {
                             moveTaskToBack(true)
                             exitProcess(-1)
                         }
-                } else if (newPin == validPin1) {
-                    // correct pin 1
+                } else if (newPin == userPin) {
                     builder.setMessage("You have successfully entered the correct pin number")
                         .setTitle("Entered PIN Success!").setPositiveButton("Continue") { _, _ ->
-                            startActivity(Intent(this, Dashboard::class.java))
-                        }
-                } else if (newPin == validPin2) {
-                    // correct pin 2
-                    builder.setMessage("You have successfully entered the correct pin number")
-                        .setTitle("Entered PIN Success!").setPositiveButton("Continue") { _, _ ->
-                            startActivity(Intent(this, Dashboard::class.java))
+                            val intent = Intent(this, Dashboard::class.java)
+                            intent.putExtra("currentUser", userId)
+                            intent.putExtra("updatedBalance$userId", userUpdatedBalance)
+                            Toast.makeText(this, userUpdatedBalance.toString(), Toast.LENGTH_SHORT)
+                                .show()
+                            startActivity(intent)
                         }
                 } else {
                     // incorrect pin

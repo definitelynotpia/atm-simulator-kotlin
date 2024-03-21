@@ -91,7 +91,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/emailAddress"
+                    android:id="@+id/phoneNumber"
                     android:layout_width="308dp"
                     android:layout_height="48dp"
                     android:layout_gravity="start"
@@ -100,13 +100,13 @@
                     android:background="@drawable/edittext_pill"
                     android:ems="10"
                     android:fontFamily="sans-serif-medium"
-                    android:hint="@string/email_address"
-                    android:inputType="textEmailAddress"
+                    android:hint="@string/phone_number"
+                    android:inputType="text|phone"
                     android:padding="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="#7F7F7F"
                     android:textSize="20sp"
-                    app:drawableStartCompat="@drawable/email"
+                    app:drawableStartCompat="@drawable/phone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/loginLabel" />
@@ -129,7 +129,7 @@
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/loginSubmit"
-                    app:layout_constraintTop_toBottomOf="@+id/emailAddress" />
+                    app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
 
                 <TextView
                     android:id="@+id/loginSubmit"

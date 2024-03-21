@@ -5,22 +5,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import com.example.atmsimulator.data.User
-import com.example.atmsimulator.data.UserViewModel
 
 class RegisterPin : AppCompatActivity() {
-
-    private lateinit var userViewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_2)
 
-        userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
-
 
         // Get values from register
+        val userCount = intent.getIntExtra("userCount", 0)
+        var userId = intent.getIntExtra("userId", userCount)
         val firstnameValue = intent.getStringExtra("firstnameValue").toString()
         val lastnameValue = intent.getStringExtra("lastnameValue").toString()
         val emailAddressValue = intent.getStringExtra("emailAddressValue").toString()
@@ -101,13 +97,29 @@ class RegisterPin : AppCompatActivity() {
 
         registerSubmit.setOnClickListener {
             // create new User object
-            val user =
-                User(firstnameValue, lastnameValue, emailAddressValue, phoneNumberValue, newPin)
-            if (::userViewModel.isInitialized && pinDigit4.text.toString() != "_") userViewModel.createUser(
-                user
-            )
-            Toast.makeText(this, "Registered successfully", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this, Login::class.java))
+            userId++
+            val newUser =
+                User(
+                    userId,
+                    firstnameValue,
+                    lastnameValue,
+                    emailAddressValue,
+                    phoneNumberValue,
+                    newPin
+                )
+            if (pinDigit4.text.toString() != "_") {
+                val intent = Intent(this, Dashboard::class.java)
+                intent.putExtra("userId$userId", userCount)
+                intent.putExtra("firstname$userId", newUser.firstname)
+                intent.putExtra("lastname$userId", newUser.lastname)
+                intent.putExtra("emailAddress$userId", newUser.email)
+                intent.putExtra("phoneNumber$userId", newUser.phone)
+                intent.putExtra("currentUser", newUser.id)
+                Toast.makeText(this, "Registered successfully: $newUser", Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Please enter a valid PIN", Toast.LENGTH_SHORT).show()
+            }
         }
 
         registerCancel.setOnClickListener {

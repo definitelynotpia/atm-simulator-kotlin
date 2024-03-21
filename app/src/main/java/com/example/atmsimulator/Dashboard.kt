@@ -16,15 +16,20 @@ class Dashboard : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
 
         // Get values from previous activity
+        val userId = intent.getIntExtra("currentUser", 0)
         val balance =
-            intent.getDoubleExtra("updatedBalance", 100000.0)
-        val initialBalance = intent.getDoubleExtra("initialBalance", 100000.0)
+            intent.getDoubleExtra("updatedBalance$userId", 0.0)
+        val initialBalance = intent.getDoubleExtra("initialBalance$userId", 0.0)
         val balanceString = balance.toString()
         val transactionTimestamp = intent.getStringExtra("transactionTimestamp")
         val transactionType = intent.getStringExtra("transactionType")
         val depositAmount = intent.getStringExtra("transactionAmount")
         val referenceNo = intent.getStringExtra("transactionReference")
         val transactionUUID = "Reference No. $referenceNo"
+
+        Toast.makeText(
+            this, balanceString, Toast.LENGTH_SHORT
+        ).show()
 
         // Update balance display on dashboard
         val accountBalance = findViewById<TextView>(R.id.accountBalance)
@@ -69,23 +74,19 @@ class Dashboard : AppCompatActivity() {
 
         withdrawButton.setOnClickListener {
             val intent = Intent(this, Withdraw::class.java)
-            intent.putExtra("updatedBalance", balance)
+            intent.putExtra("updatedBalance$userId", balance)
             startActivity(intent)
         }
 
         depositButton.setOnClickListener {
-            Toast.makeText(
-                this, balance.toString(), Toast.LENGTH_SHORT
-            ).show()
-
             val intent = Intent(this, Deposit::class.java)
-            intent.putExtra("updatedBalance", balance)
+            intent.putExtra("updatedBalance$userId", balance)
             startActivity(intent)
         }
 
         transferButton.setOnClickListener {
             val intent = Intent(this, Transfer::class.java)
-            intent.putExtra("updatedBalance", balance)
+            intent.putExtra("updatedBalance$userId", balance)
             startActivity(intent)
         }
     }

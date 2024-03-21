@@ -24,7 +24,8 @@ class Deposit : AppCompatActivity() {
         val userDepositAmount = findViewById<EditText>(R.id.depositAmount)
 
         // Get values from previous activity
-        val balance = intent.getDoubleExtra("updatedBalance", 100000.0)
+        val currentUser = intent.getIntExtra("currentUser", 0)
+        val balance = intent.getDoubleExtra("updatedBalance$currentUser", 100000.0)
         val intent = Intent(this, Dashboard::class.java)
 
         // Set balance display to current balance value
@@ -72,9 +73,9 @@ class Deposit : AppCompatActivity() {
                 intent.putExtra("transactionType", "DEPOSIT")
                 intent.putExtra("transactionTimestamp", transactionTimestamp)
                 intent.putExtra("transactionReference", referenceNo)
-                intent.putExtra("initialBalance", balance)
+                intent.putExtra("initialBalance$currentUser", balance)
                 intent.putExtra("transactionAmount", userDepositAmount.text.toString())
-                intent.putExtra("updatedBalance", newBalance)
+                intent.putExtra("updatedBalance$currentUser", newBalance)
                 startActivity(intent)
             }
         }
@@ -112,8 +113,8 @@ class Deposit : AppCompatActivity() {
             intent.putExtra("transactionType", "none")
             intent.putExtra("transactionTimestamp", "")
             intent.putExtra("transactionReference", "")
-            intent.putExtra("initialBalance", balance)
-            intent.putExtra("updatedBalance", balance)
+            intent.putExtra("initialBalance$currentUser", balance)
+            intent.putExtra("updatedBalance$currentUser", balance)
             startActivity(intent)
         }
     }

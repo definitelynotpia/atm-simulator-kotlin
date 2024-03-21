@@ -24,7 +24,8 @@ class Withdraw : AppCompatActivity() {
         val userWithdrawAmount = findViewById<EditText>(R.id.withdrawAmount)
 
         // Get values from previous activity
-        val balance = intent.getDoubleExtra("updatedBalance", 100000.0)
+        val currentUser = intent.getIntExtra("currentUser", 0)
+        val balance = intent.getDoubleExtra("updatedBalance$currentUser", 100000.0)
         val intent = Intent(this, Dashboard::class.java)
 
         // Set balance display to current balance value
@@ -72,8 +73,9 @@ class Withdraw : AppCompatActivity() {
                 intent.putExtra("transactionType", "WITHDRAW")
                 intent.putExtra("transactionTimestamp", transactionTimestamp)
                 intent.putExtra("transactionReference", referenceNo)
-                intent.putExtra("initialBalance", balance)
-                intent.putExtra("updatedBalance", newBalance)
+                intent.putExtra("initialBalance$currentUser", balance)
+                intent.putExtra("updatedBalance$currentUser", newBalance)
+                intent.putExtra("transactionAmount", userWithdrawAmount.text.toString())
                 startActivity(intent)
             }
         }
@@ -111,8 +113,8 @@ class Withdraw : AppCompatActivity() {
             intent.putExtra("transactionType", "none")
             intent.putExtra("transactionTimestamp", "")
             intent.putExtra("transactionReference", "")
-            intent.putExtra("initialBalance", balance)
-            intent.putExtra("updatedBalance", balance)
+            intent.putExtra("initialBalance$currentUser", balance)
+            intent.putExtra("updatedBalance$currentUser", balance)
             startActivity(intent)
         }
     }

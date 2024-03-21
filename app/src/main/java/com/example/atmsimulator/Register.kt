@@ -11,6 +11,9 @@ class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        // get user count
+        var userCount = intent.getIntExtra("userCount", 0)
         // edittext data
         val firstname = findViewById<android.widget.EditText>(R.id.firstname)
         val lastname = findViewById<android.widget.EditText>(R.id.lastname)
@@ -34,6 +37,8 @@ class Register : AppCompatActivity() {
             if (firstnameValue.isEmpty() || lastnameValue.isEmpty() || emailAddressValue.isEmpty() || phoneNumberValue.isEmpty()) {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             } else {
+                userCount++
+                intent.putExtra("userId", userCount)
                 intent.putExtra("firstnameValue", firstnameValue)
                 intent.putExtra("lastnameValue", lastnameValue)
                 intent.putExtra("emailAddressValue", emailAddressValue)
